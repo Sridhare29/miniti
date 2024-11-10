@@ -4,7 +4,7 @@ import Category from './pages/Category';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <BrowserRouter>
