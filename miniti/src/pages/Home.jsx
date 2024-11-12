@@ -3,6 +3,7 @@ import Hero from '../components/Hero/Hero'
 import Popular from '../components/Popular/Popular'
 import OfferBanner from '../components/Banner/OfferBanner'
 import NewCollection from '../components/New Collection/NewCollection'
+import NewsLetter from '../components/NewsLetter/NewsLetter'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Popular/>
       <OfferBanner/>
       <NewCollection/>
+      <NewsLetter/>
     </div>
   )
 }
