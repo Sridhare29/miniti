@@ -11,7 +11,7 @@ function Signup() {
                 <input type='email' placeholder='Email Address'/>
                 <input type='password' placeholder='Password'/>
             </div>
-            <button>Continue</button>
+            <button className='sign-btn'>Continue</button>
             <p className='signup-login'>Already have an account? <span>Login here</span></p>
             <div className="signup-agree">
                 <input type='checkbox' name='' id=''/>

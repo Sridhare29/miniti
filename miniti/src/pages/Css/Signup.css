@@ -42,7 +42,7 @@
     box-shadow: 0 0 5px rgba(98, 0, 234, 0.4);
   }
   
-  button {
+  .sign-btn {
     width: 100%;
     padding: 12px 16px;
     font-size: 1rem;
