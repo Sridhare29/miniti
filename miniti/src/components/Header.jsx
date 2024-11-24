@@ -152,6 +152,62 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+{/* only at sm - menu  visible    */}
+<div className="hidden md-lg:block">
+  {/* Backdrop */}
+  <div
+    onClick={() => setShowShidebar(true)}
+    className={`fixed duration-200 transition-all ${
+      showshidebar ? "invisible" : "visible"
+    } w-screen h-screen bg-[rgba(0,0,0,0.3)] top-0 left-0 z-20`}
+  ></div>
+
+  {/* Sidebar */}
+  <div
+    className={`w-[300px] z-[9999] transition-all duration-300 fixed ${
+      showshidebar ? "-left-[300px]" : "left-0"
+    } top-0 overflow-y-auto bg-[#f9fafc] h-screen py-6 px-8 rounded-tr-2xl rounded-br-2xl shadow-lg`}
+  >
+    <div className="flex flex-col gap-8">
+      {/* Logo */}
+      <Link to="/" className="flex justify-start items-center">
+        <img
+          src="http://localhost:3000/images/logo.png"
+          alt="Logo"
+          className="h-10 w-auto"
+        />
+      </Link>
+
+
+
+      {/* Navigation Links */}
+      <ul className="flex flex-col gap-4 text-sm font-semibold uppercase">
+        {[
+          { label: "Home", path: "/" },
+          { label: "Shop", path: "/shop" },
+          { label: "Blog", path: "/blog" },
+          { label: "About Us", path: "/about" },
+          { label: "Contact Us", path: "/contact" },
+        ].map((nav, index) => (
+          <li key={index}>
+            <Link
+              to={nav.path}
+              className={`block py-2 ${
+                pathname === nav.path
+                  ? "text-[#059473] bg-[#e9fbe6] rounded-md px-2"
+                  : "text-slate-600 hover:bg-gray-100 rounded-md px-2"
+              }`}
+            >
+              {nav.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
