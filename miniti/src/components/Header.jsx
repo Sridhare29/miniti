@@ -133,13 +133,13 @@ const Header = () => {
                 </ul>
                 {/* Cart and wishlist */}
               <div className="flex md-lg:hidden items-center justify-center gap-5  w-[10%] h-[50%]">
-                <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#e2e2e2]">
-                <span className='text-xl text-[#70b247]'><FaHeart /></span>
+              <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#d7f2da]">
+              <span className='text-xl text-[#70b247]'><FaHeart /></span>
                 <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
                 { wishlist_count }
                 </div>
                 </div>
-<div className="flex relative justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#e2e2e2]">
+                <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#d7f2da]">
                 <span className='text-xl text-[#70b247]'><FaCartShopping/></span>
                 <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
                 { wishlist_count }
