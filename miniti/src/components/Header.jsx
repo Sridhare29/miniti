@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <div className="w-full bg-white">
       {/* Top Header Section */}
-      <div className="header-top bg-[#caddff] md-lg:hidden">
+      <div className="header-top bg-[#c1E6BA] md-lg:hidden">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-[50px] text-slate-500">
             {/* Contact Information */}
@@ -111,36 +111,36 @@ const Header = () => {
                 </div>
                 </div> 
                 </div>
-              {/* navbar topic head */}
+              {/* navbar topic head [#023336]- dark*/}
               <div className="md:lg:w-full w-9/12">
               <div className='flex justify-between md-lg:justify-center items-center flex-wrap pl-8 '>
                 <ul className="flex items-center justify-center gap-8 font-bold uppercase text-lg md-lg:hidden h-[100px]">
                     <li>
-                        <Link className={`p-2 block ${pathname === '/' ?  'text-[#70b247]' : 'text-slate-600' } `}>Home</Link>
+                        <Link className={`p-2 block ${pathname === '/' ?  'text-[#4DA674]' : 'text-slate-600' } `}>Home</Link>
+                    </li>
+                    <li> 
+                        <Link className={`p-2 block ${pathname === '/shop' ?  'text-[#4DA674]' : 'text-slate-600' } `}>Shop</Link>
                     </li>
                     <li>
-                        <Link className={`p-2 block ${pathname === '/shop' ?  'text-[#70b247]' : 'text-slate-600' } `}>Shop</Link>
+                       <Link className={`p-2 block ${pathname === '/blog' ?  'text-[#4DA674]' : 'text-slate-600' } `}>Blog</Link>
                     </li>
                     <li>
-                       <Link className={`p-2 block ${pathname === '/blog' ?  'text-[#70b247]' : 'text-slate-600' } `}>Blog</Link>
+                        <Link className={`p-2 block ${pathname === '/about' ?  'text-[#4DA674]' : 'text-slate-600' } `}>About Us</Link>
                     </li>
                     <li>
-                        <Link className={`p-2 block ${pathname === '/about' ?  'text-[#70b247]' : 'text-slate-600' } `}>About Us</Link>
-                    </li>
-                    <li>
-                       <Link className={`p-2 block ${pathname === '/contact' ?  'text-[#70b247]' : 'text-slate-600' } `}>Contact Us</Link>
+                       <Link className={`p-2 block ${pathname === '/contact' ?  'text-[#4DA674]' : 'text-slate-600' } `}>Contact Us</Link>
                     </li>
                 </ul>
                 {/* Cart and wishlist */}
               <div className="flex md-lg:hidden items-center justify-center gap-5  w-[10%] h-[50%]">
-              <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#d7f2da]">
-              <span className='text-xl text-[#70b247]'><FaHeart /></span>
+              <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#EAF8E7]">
+              <span className='text-xl text-[#4DA674]'><FaHeart /></span>
                 <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
                 { wishlist_count }
                 </div>
                 </div>
-                <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#d7f2da]">
-                <span className='text-xl text-[#70b247]'><FaCartShopping/></span>
+                <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#EAF8E7]">
+                <span className='text-xl text-[#4DA674]'><FaCartShopping/></span>
                 <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
                 { wishlist_count }
                 </div>
