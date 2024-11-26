@@ -4,11 +4,11 @@ function Card(props) {
   return (
     <div className="flex flex-col lg:flex-row items-center w-full max-w-sm lg:max-w-md bg-green-100 rounded-lg shadow-lg overflow-hidden m-4">
       {/* Image Section */}
-      <div className="flex-shrink-0  p-2">
+      <div className="flex-shrink-0 w-50 h-40 p-2">
         <img
           src={props.image}
           alt="Recycling Illustration"
-          className="w-full object-contain"
+          className="w-full h-full object-contain"
         />
       </div>
 
