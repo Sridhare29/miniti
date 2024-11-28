@@ -1,19 +1,7 @@
 import React, { useState } from "react";
-import { MdEmail } from "react-icons/md";
-import { IoMdPhonePortrait, IoMdArrowDropdown } from "react-icons/io";
-import {
-  FaFacebookF,
-  FaLock,
-  FaUser,
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaList,
-} from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import { FaHeart } from "react-icons/fa6";
-import { FaCartShopping } from "react-icons/fa6";
 import { CiMenuFries } from "react-icons/ci";
+import { Leaf, Menu, Heart, ShoppingCart, User, Lock, Mail, Phone, Facebook, Twitter, Linkedin, Github } from "lucide-react";
 
 
 const Header = () => {
@@ -24,19 +12,19 @@ const Header = () => {
 
   return (
     <div className="w-full bg-white">
-      {/* Top Header Section */}
-      <div className="header-top bg-[#c1E6BA] md-lg:hidden">
+            {/* Top Header Section */}
+            <div className="header-top bg-[#c1E6BA] md-lg:hidden">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-[50px] text-slate-500">
             {/* Contact Information */}
             <ul className="flex items-center gap-8 font-medium text-black">
               <li className="flex items-center gap-2 text-sm relative after:content-[''] after:absolute after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:right-[-16px]">
-                <MdEmail />
-                <span>support@gmail.com</span>
+                <Mail />
+                <span>green-support@miniti.com</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <IoMdPhonePortrait />
-                <span>+(123) 3243 343</span>
+                <Phone />
+                <span>+(123) ECO-HELP</span>
               </li>
             </ul>
 
@@ -45,52 +33,30 @@ const Header = () => {
               {/* Social Media Icons */}
               <div className="flex items-center gap-4 text-black">
                 <a href="#" className="hover:text-blue-600 transition-colors">
-                  <FaFacebookF />
+                  <Facebook />
                 </a>
                 <a href="#" className="hover:text-sky-500 transition-colors">
-                  <FaTwitter />
+                  <Twitter />
                 </a>
                 <a href="#" className="hover:text-blue-700 transition-colors">
-                  <FaLinkedin />
+                  <Linkedin />
                 </a>
                 <a href="#" className="hover:text-gray-700 transition-colors">
-                  <FaGithub />
+                  <Github />
                 </a>
-              </div>
-
-              {/* Language Dropdown */}
-              <div className="relative group cursor-pointer text-sm text-slate-800 flex items-center gap-1">
-                <img
-                  src="http://localhost:3000/images/lang.png"
-                  alt="Language"
-                  className="w-10 h-15"
-                />
-                <IoMdArrowDropdown />
-                <ul className="absolute invisible group-hover:visible transition-all duration-200 top-10 left-0 bg-black text-white p-2 w-[100px] rounded-md shadow-md z-10 flex flex-col gap-2">
-                  <li className="hover:bg-gray-700 px-2 py-1 rounded">Hindi</li>
-                  <li className="hover:bg-gray-700 px-2 py-1 rounded">
-                    English
-                  </li>
-                </ul>
               </div>
 
               {/* User Login/Account */}
               {user ? (
-                <Link
-                  className="flex items-center gap-2 text-sm text-black hover:text-blue-600 transition-colors"
-                  to="/"
-                >
-                  <FaUser />
-                  <span>Sridhar</span>
-                </Link>
+                <div className="flex items-center gap-2 text-sm text-black hover:text-green-600 transition-colors cursor-pointer">
+                  <User />
+                  <span>Eco Warrior</span>
+                </div>
               ) : (
-                <Link
-                  className="flex items-center gap-2 text-sm text-black hover:text-blue-600 transition-colors"
-                  to="/login"
-                >
-                  <FaLock />
-                  <span>Login</span>
-                </Link>
+                <div className="flex items-center gap-2 text-sm text-black hover:text-green-600 transition-colors cursor-pointer">
+                  <Lock />
+                  <span>Join Green Movement</span>
+                </div>
               )}
             </div>
           </div>
@@ -132,20 +98,23 @@ const Header = () => {
                     </li>
                 </ul>
                 {/* Cart and wishlist */}
-              <div className="flex md-lg:hidden items-center justify-center gap-5  w-[10%] h-[50%]">
-              <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#EAF8E7]">
-              <span className='text-xl text-[#4DA674]'><FaHeart /></span>
-                <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
-                { wishlist_count }
+                <div className="flex md-lg:hidden items-center justify-center gap-5 w-[10%] h-[50%]">
+                  {[
+                    { icon: Heart, color: 'text-[#4DA674]' },
+                    { icon: ShoppingCart, color: 'text-[#4DA674]' }
+                  ].map(({ icon: Icon, color }, index) => (
+                    <div 
+                      key={index} 
+                      className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#EAF8E7]"
+                    >
+                      <span className={`text-xl ${color}`}><Icon /></span>
+                      <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px]'>
+                        {wishlist_count}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                </div>
-                <div className="relative flex justify-center items-center cursor-pointer px-4 py-4 rounded-full bg-[#EAF8E7]">
-                <span className='text-xl text-[#4DA674]'><FaCartShopping/></span>
-                <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px] '>
-                { wishlist_count }
-                </div>
-                </div>
-              </div>
+
               </div>
               </div>
               

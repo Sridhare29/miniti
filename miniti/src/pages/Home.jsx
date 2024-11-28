@@ -4,6 +4,7 @@ import MainBanner from '../components/Layout/MainBanner'
 import { QuoteBanner } from '../components/Layout/QuoteBanner'
 import AboutBanner from '../components/Layout/AboutBanner'
 import OurServicesBanner from '../components/Layout/OurServicesBanner'
+import BookingBanner from '../components/Layout/BookingBanner'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
         <QuoteBanner/>
         <AboutBanner/>
         <OurServicesBanner/>
+        <BookingBanner/>
     </div>
   )
 }
