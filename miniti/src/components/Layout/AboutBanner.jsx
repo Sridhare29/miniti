@@ -31,7 +31,7 @@ const AboutBanner = () => {
   ];
 
   return (
-    <div className="w-full mt-12">
+    <div className="w-full mt-8">
       <div className="flex flex-row items-center px-6 gap-1">
       {cardValues.map((card) => (
           <Card
