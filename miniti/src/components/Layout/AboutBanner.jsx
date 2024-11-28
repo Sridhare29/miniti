@@ -32,7 +32,7 @@ const AboutBanner = () => {
 
   return (
     <div className="w-full mt-8">
-      <div className="flex flex-row items-center px-6 gap-1">
+      <div className="flex flex-row items-center px-6 gap-1 sm:flex-col">
       {cardValues.map((card) => (
           <Card
             key={card.id}
