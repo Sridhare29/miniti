@@ -30,7 +30,7 @@ const BookingBanner = () => {
             </p>
             
             <div className="flex justify-center lg:justify-start space-x-4">
-              <button onClick={() => navigate('/erorr')} className="flex items-center bg-gradient-to-r from-green-400 to-green-400 font-semibold text-white px-6 py-3 rounded-full hover:scale-105 transition-transform group">
+              <button onClick={() => navigate('/request')} className="flex items-center bg-gradient-to-r from-green-400 to-green-400 font-semibold text-white px-6 py-3 rounded-full hover:scale-105 transition-transform group">
                 <Recycle className="mr-2 group-hover:rotate-45 transition-transform" />
                 Book Your Green Slot
               </button>
