@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div className="flex flex-col lg:flex-row items-center w-full max-w-sm lg:max-w-md bg-green-100 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105 m-4">
+    <div className="flex flex-col lg:flex-row items-center w-full max-w-sm lg:max-w-md bg-green-200 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105 m-4">
       {/* Image Section */}
       <div className="flex-shrink-0 w-50 h-40 p-2">
         <img

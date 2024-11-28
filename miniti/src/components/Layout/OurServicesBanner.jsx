@@ -2,7 +2,7 @@ import React from 'react';
 
 function OurServicesBanner() {
   return (
-    <div className="flex flex-col bg-gradient-to-r from-[#4DA674] via-[#7edaa6] to-[#4DA674] my-8 justify-center items-center py-8 px-6 text-center">
+    <div className="flex flex-col bg-gradient-to-r from-green-300 via-green-200 to-green-300 mt-8 justify-center items-center py-8 px-6 text-center">
       {/* Heading Section */}
       <div className="flex m-4 text-[30px] sm:text-[20px] lg:text-[50px] font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 animate-text-fade">
         <h1>Our Services</h1>

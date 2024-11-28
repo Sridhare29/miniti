@@ -5,6 +5,7 @@ import { QuoteBanner } from '../components/Layout/QuoteBanner'
 import AboutBanner from '../components/Layout/AboutBanner'
 import OurServicesBanner from '../components/Layout/OurServicesBanner'
 import BookingBanner from '../components/Layout/BookingBanner'
+import EcoFooter from '../components/Layout/EcoFooter'
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <AboutBanner/>
         <OurServicesBanner/>
         <BookingBanner/>
+        <EcoFooter/>
     </div>
   )
 }
