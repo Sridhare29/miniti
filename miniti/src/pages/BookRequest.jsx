@@ -1,32 +1,37 @@
-import React from 'react'
+import React from 'react';
 
 const BookRequest = () => {
   return (
-    <div className='flex w-full'>
-      <div className="flex w-full m-16 justify-center">
-      <div className="w-full  lg:w-1/2 flex flex-col justify-center">
-           <button>
-           <img 
-              src="http://localhost:3000/images/svg/Waste management-amico.svg" 
-              alt="Recycling and Environmental Protection" 
-              className="w-1/4 transform hover:scale-110 justify-center items-center flex transition-transform duration-500 rounded-xl border-4"
-            />
-           </button>
-           <p className='flex text-[20px] p-2 items-center font-semibold justify-center'>HouseHold</p>
+    <div className="flex w-full min-h-screen items-center bg-gray-50">
+      <div className="container mx-auto p-6">
+        <div className="flex flex-row justify-center gap-2">
+          {/* Household Option */}
+          <div className="flex flex-col items-center w-full md:w-1/3 lg:w-1/4">
+            <button className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center transition-transform transform hover:scale-105">
+              <img
+                src="http://localhost:3000/images/svg/Waste management-amico.svg"
+                alt="Household"
+                className="w-full h-full object-contain rounded-xl border-4 border-green-400"
+              />
+            </button>
+            <p className="text-lg font-semibold mt-4 text-center">Household</p>
           </div>
-          <div className="w-full lg:w-1/2 flex-col flex justify-center">
-           <button>
-           <img 
-              src="http://localhost:3000/images/svg/Waste management-amico.svg" 
-              alt="Recycling and Environmental Protection" 
-              className="w-1/4 transform hover:scale-110 justify-center items-center flex transition-transform duration-500 rounded-xl border-4"
-            />
-           </button>
-           <p className='flex text-[20px] p-2 items-center font-semibold justify-center'>Corperate</p>
+
+          {/* Corporate Option */}
+          <div className="flex flex-col items-center w-full md:w-1/3 lg:w-1/4">
+            <button className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center transition-transform transform hover:scale-105">
+              <img
+                src="http://localhost:3000/images/svg/Waste management-amico.svg"
+                alt="Corporate"
+                className="w-full h-full object-contain rounded-xl border-4 border-blue-400"
+              />
+            </button>
+            <p className="text-lg font-semibold mt-4 text-center">Corporate</p>
           </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BookRequest
+export default BookRequest;
