@@ -1,11 +1,14 @@
-import React from 'react'
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./Reducer";
 
-function index() {
-  return (
-  <div>
-      
-  </div> 
-  )
-}
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    });
+  },
+  devtools: true,
+});
+export default store;
 
-export default index
