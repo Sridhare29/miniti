@@ -1,8 +1,8 @@
-import addressReducer from "./AddressReducer";
 import { combineReducers } from '@reduxjs/toolkit';
+import { AddressReducer } from './AddressReducer'
 
 const rootReducer = combineReducers({
-  address: addressReducer, // Ensure the key matches what your component expects
+  address: AddressReducer,
 });
 
 export default rootReducer;

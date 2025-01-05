@@ -1,20 +1,17 @@
 import { services } from "../../Api";
 import AddressActionTypes from "../actionTypes/Address.actionTypes";
   
-  export function getAddress() {
-    return async (dispatch) => {
-      let Address = [];
-      try {
-        Address = await services.AddressApi.api.getAddressData({
-          throwTheErr: false,
-        });
-        dispatch({ type: AddressActionTypes.GET_ADDRESS, Address });
-      } catch (error) {
-        handleError({
-          error,
-          origin: FILE_PATH,
-        });
-        return [];
-      }
-    };
-  }
+export const getAddress = () => async (dispatch) => {
+    try {
+      const addresses = await services.AddressApi.api.getAddressData();
+      dispatch({
+        type: AddressActionTypes.GET_ADDRESS,
+        payload: addresses
+      });
+      return addresses;
+    } catch (error) {
+      console.error('Failed to fetch addresses:', error);
+      return [];
+    }
+  };
+  
