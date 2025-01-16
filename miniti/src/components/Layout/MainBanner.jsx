@@ -2,35 +2,58 @@ import React from "react";
 
 const MainBanner = () => {
   return (
-    <div className="w-full mt-12">
-      {/* Wrapper */}
-      <div className="w-full mx-auto flex  lg:flex-row justify-between items-center px-6 lg:px-16">
-        {/* Left Section */}
-        <div className="flex flex-col items-start w-full h-full pl-40 mb-8 lg:mb-0 lg:w-1/2 text-left">
-          <p className="font-extrabold text-[50px] text-gray-800 leading-tight mb-2">
-            Turn Trash into
-          </p>
-          <p className="font-extrabold text-[50px] lg:text-[50px] text-gray-800 leading-tight mb-2">
-            <span>Cash with </span>
-            <span className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-transparent bg-clip-text">
-              Miniti!
-            </span>
-          </p>
-          <p className="font-light text-lg text-[#5b5b5b] leading-tight mb-2">
-            Recycle Smart | Earn Instant | Save Planet
-          </p>
-        </div>
+    <div className="relative min-h-screen w-full bg-[#a7de9c] overflow-hidden px-6 sm:px-10 lg:px-16 py-12">
+  {/* Background Text */}
+  <div className="absolute w-full h-full flex items-center justify-center">
+    <h1 className="text-[200px] font-black text-white/20 tracking-wider">
+      MINITI
+    </h1>
+  </div>
 
-        {/* Right Section */}
-        <div className="flex justify-center items-center w-full h-full lg:w-1/2">
-          <img
-            src="http://localhost:3000/images/Save the Earth-amico.svg"
-            alt="Save the Earth"
-            className="w-full max-w-md lg:max-w-lg transform transition-transform duration-500 hover:scale-105"
-          />
+  {/* Main Content */}
+  <div className="relative container mx-auto h-screen flex items-center">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 w-full">
+      {/* Left Content */}
+      <div className="z-10 lg:w-1/2 text-white space-y-6">
+        <h2 className="text-5xl font-bold">
+          Turn Trash into
+          <br />
+          Cash with Miniti
+        </h2>
+        <p className="text-xl">
+          Recycle Smart | Earn Instant | Save Planet
+        </p>
+        <button className="bg-white text-orange-400 px-8 py-3 rounded-full font-bold hover:bg-orange-100 transition-colors">
+          Order Now
+        </button>
+      </div>
+
+      {/* Center Image */}
+      <div className="relative z-20 lg:absolute lg:right-[15%] lg:top-1/2 lg:-translate-y-1/2">
+        <img
+          src="/images/svg/Home_Imgs.svg"
+          alt="Save the Earth"
+          className="w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] object-contain"
+        />
+        {/* Floating Elements */}
+        <div className="absolute -top-8 -left-8 w-10 h-10 lg:w-12 lg:h-32">
+          <img src="/images/svg/Waste management-amico.svg" alt="leaf" className="animate-float" />
+        </div>
+        <div className="absolute top-16 -right-8 w-10 h-10 lg:w-12 lg:h-12">
+          <img src="/images/svg/Waste management-amico.svg" alt="leaf" className="animate-float-delay" />
         </div>
       </div>
     </div>
+  </div>
+
+  {/* Navigation Dots */}
+  <div className="absolute bottom-8 right-8 flex gap-2">
+    <button className="w-3 h-3 rounded-full bg-white opacity-50"></button>
+    <button className="w-3 h-3 rounded-full bg-white"></button>
+    <button className="w-3 h-3 rounded-full bg-white opacity-50"></button>
+  </div>
+</div>
+
   );
 };
 
