@@ -2,8 +2,11 @@ import React from "react";
 import tealeafImage from "../../image/tealeafimg.png";
 import leafImage from "../../image/monstera_17259470 (1).png";
 import ecoabs from "../../image/WelcomeBanner.png";
+import { useNavigate } from 'react-router-dom'
 
 const MainBanner = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative min-h-screen w-full bg-[#ffffff] overflow-hidden px-6 sm:px-10 lg:px-16 top-8">
       {/* Background Text */}
@@ -25,7 +28,9 @@ const MainBanner = () => {
           <p className="text-lg lg:text-xl">
             Recycle Smart | Earn Instant | Save Planet
           </p>
-          <button className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-6 rounded-full font-bold hover:bg-orange-100 transition-colors">
+          <button
+          onClick={() => navigate('/request')}
+           className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-6 rounded-full font-bold hover:bg-orange-100 transition-colors">
             Book Now
           </button>
         </div>

@@ -2,7 +2,8 @@ import React from 'react';
 
 function OurServicesBanner() {
   return (
-    <div className="relative min-h-[40vh] w-full bg-[#ffffff] overflow-hidden px-6 sm:px-10 lg:px-16 py-20">
+    <div className="relative min-h-[40vh] w-full bg-[#ffffff] overflow-hidden px-6 sm:px-10 lg:px-16 py-10">
+            <div className="w-full h-px bg-[#cae4c7] mb-8"></div>
       {/* Heading Section */}
       <div className="absolute w-full flex items-center justify-center">
         <h1 className="text-[80px] lg:text-[120px] font-black text-[#cae4c7] tracking-wider opacity-30">

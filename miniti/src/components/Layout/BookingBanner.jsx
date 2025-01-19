@@ -1,65 +1,91 @@
 import React from 'react'
 import { Leaf, Droplet, Recycle } from 'lucide-react'
-import NotFound from '../../pages/NotFound';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import tealeafImage from "../../image/tealeafimg.png";
+import leafImage from "../../image/monstera_17259470 (1).png";
+import ecoabs from "../../image/WelcomeBanner.png";
 
 const BookingBanner = () => {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
-    <div className="relative bg-gradient-to-br my-8 pb-16  min-h-screen flex items-center overflow-hidden">
-      {/* Background Shapes */}
-      {/* <div className="absolute top-0 left-0 w-full h-full opacity-10">
-        <Recycle className="absolute top-10 left-10 text-green-300 w-32 h-32" />
-        <Leaf className="absolute bottom-20 right-20 text-green-300 w-48 h-48" />
-        <Droplet className="absolute top-1/3 right-1/4 text-blue-300 w-40 h-40" />
-      </div> */}
+    <div className="relative min-h-screen w-full bg-[#ffffff] overflow-hidden px-6 sm:px-10 lg:px-16">
+            <div className="w-full h-px bg-[#cae4c7] mb-8"></div>
+      {/* Background Text */}
+      <div className="absolute w-full flex items-center justify-center top-40 md-lg:pt-28">
+        <h1 className="text-[150px] lg:text-[200px] font-black text-[#cae4c7] tracking-wider opacity-30">
+          RECYCLE
+        </h1>
+      </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between space-y-2 lg:space-y-0">
-          {/* Content Section */}
-          <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
-            <div className="bg-white/30 backdrop-blur-sm p-4 rounded-xl inline-block">
-              <h1 className="text-4xl lg:text-5xl font-bold bg-clip-text py-1 text-transparent bg-gradient-to-r from-green-600 to-teal-400">
-                Recycle. Earn. Impact.
-              </h1>
-            </div>
-            
-            <p className="text-xl text-gray-700 font-medium leading-relaxed">
-              Transform waste into wealth. Every recyclable counts towards a greener planet and puts money back in your pocket.
-            </p>
-            
-            <div className="flex justify-center lg:justify-start space-x-4">
-              <button onClick={() => navigate('/request')} className="flex items-center bg-gradient-to-r from-green-400 to-green-400 font-semibold text-white px-6 py-3 rounded-full hover:scale-105 transition-transform group">
-                <Recycle className="mr-2 group-hover:rotate-45 transition-transform" />
-                Book Your Green Slot
-              </button>
-            </div>
-
-            <div className="flex space-x-4 justify-center lg:justify-start">
-              <div className="flex items-center bg-white/50 border-2 backdrop-blur-sm p-2 rounded-xl hover:scale-105 transition-transform group">
-                <Leaf className="text-green-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Instant Cash</span>
-              </div>
-              <div className="flex items-center bg-white/50 border-2 backdrop-blur-sm p-2 rounded-xl hover:scale-105 transition-transform group">
-                <Droplet className="text-blue-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Eco Friendly</span>
-              </div>
-            </div>
+      {/* Main Content */}
+      <div className="relative container mx-auto h-screen flex  lg:flex-row items-center lg:items-center ">
+        {/* Left Content */}
+        {/* <div className="relative z-20 lg:absolute lg:left-[5%] lg:top-1/2 lg:-translate-y-1/2 mt-10 lg:mt-0"> */}
+          {/* Decorative Leaf Elements */}
+          {/* <div className="absolute top-0 left-0 w-20 h-20 lg:w-16 lg:h-24 transform rotate-45 animate-float">
+            <img
+              src="/images/tealeaf-image.png" // Make sure the path is correct
+              alt="leaf"
+              className="w-full h-full object-contain"
+            />
           </div>
 
-          {/* Image Section */}
-          <div className="w-full lg:w-1/2 flex justify-center">
-            <img 
+          <div className="absolute top-40 left-20 w-20 h-20 lg:w-14 lg:h-20 transform -rotate-45 animate-float">
+            <img
+              src={leafImage} // Make sure the path is correct
+              alt="leaf"
+              className="w-full h-full object-contain"
+            />
+          </div> */}
+
+          {/* Main Image */}
+          <div className="relative px-12 z-20 lg:absolute w-1/2 lg:-translate-y-1/2 mt-10 lg:mt-0 flex justify-start">
+          <img 
               src="http://localhost:3000/images/svg/Waste management-amico.svg" 
               alt="Recycling and Environmental Protection" 
               className="w-full max-w-md lg:max-w-lg transform hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
-            />
+        />
+        </div>
+        {/* Right Image */}
+
+        <div className="z-10 lg:w-1/2 text-[#335230] space-y-6  mx-24 lg:mt-0">
+          <h2 className="text-5xl lg:text-5xl font-bold">
+            Recycle. 
+            <br />
+            Earn. Impact.
+          </h2>
+          
+          <p className="text-lg lg:text-xl">
+            Transform Waste | Earn Instantly | Save Planet
+          </p>
+          
+          <div className="flex space-x-4">
+            <button 
+              onClick={() => navigate('/request')}
+              className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-6 rounded-full font-bold hover:bg-orange-100 transition-colors flex items-center"
+            >
+              <Recycle className="mr-2" />
+              Book Green Slot
+            </button>
+          </div>
+
+          <div className="flex space-x-4">
+            <div className="flex items-center bg-[#cae4c7]/30 p-2 rounded-full">
+              <Leaf className="text-[#335230] mr-2" />
+              <span className="text-[#335230]">Instant Cash</span>
+            </div>
+            <div className="flex items-center bg-[#cae4c7]/30 p-2 rounded-full">
+              <Droplet className="text-[#335230] mr-2" />
+              <span className="text-[#335230]">Eco Friendly</span>
+            </div>
           </div>
         </div>
+
+        
       </div>
     </div>
-  )
+  );
 }
 
-export default BookingBanner
+export default BookingBanner;

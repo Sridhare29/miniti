@@ -7,33 +7,36 @@ const AboutBanner = () => {
     {
       id: 1,
       title: "Best Rates",
-      description: "We provide the best value for your scrap from our network of Recyclers.",
+      description:
+        "We provide the best value for your scrap from our network of Recyclers.",
       image: "http://localhost:3000/images/svg/Garbage management-amico.svg",
     },
     {
       id: 2,
       title: "Convenience",
-      description: "Doorstep pickup according to user's convenient date & time.",
+      description:
+        "Doorstep pickup according to user's convenient date & time.",
       image: "http://localhost:3000/images/Garbage management-bro.svg",
     },
     {
       id: 3,
       title: "Trust",
-      description: "Trained & Verified Pickup Staff with Swapeco Smart Weighing Scale.",
+      description:
+        "Trained & Verified Pickup Staff with Swapeco Smart Weighing Scale.",
       image: "http://localhost:3000/images/svg/Garbage management-amico.svg",
     },
     {
-        id: 4,
-        title: "Eco-friendly",
-        description: "We ensure responsible recycling of your scrap items.",
-        image: "http://localhost:3000/images/svg/Garbage management-pana.svg",
-      },
+      id: 4,
+      title: "Eco-friendly",
+      description: "We ensure responsible recycling of your scrap items.",
+      image: "http://localhost:3000/images/svg/Garbage management-pana.svg",
+    },
   ];
 
   return (
     <div className="w-full mt-8">
       <div className="flex flex-row items-center px-4 gap-4 sm:flex-col">
-      {cardValues.map((card) => (
+        {cardValues.map((card) => (
           <Card
             key={card.id}
             title={card.title}
