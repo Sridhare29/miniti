@@ -9,16 +9,29 @@ import EcoFooter from '../components/Layout/EcoFooter'
 
 function Home() {
   return (
-    <div className='w-full'>
-        <Header/>
-        <MainBanner/>
-        <QuoteBanner/>
-        <AboutBanner/>
-        <OurServicesBanner/>
-        <BookingBanner/>
-        <EcoFooter/>
+    <div className="w-full">
+      <Header />
+      <section id="main-banner">
+        <MainBanner />
+      </section>
+      <section id="quote-banner">
+        <QuoteBanner />
+      </section>
+      <section id="about-banner">
+        <AboutBanner />
+      </section>
+      <section id="services-banner">
+        <OurServicesBanner />
+      </section>
+      <section id="booking-banner">
+        <BookingBanner />
+      </section>
+      <section id="footer">
+        <EcoFooter />
+      </section>
     </div>
-  )
+  );
 }
+
 
 export default Home

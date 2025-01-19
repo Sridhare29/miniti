@@ -12,3 +12,14 @@
     }
   }
   
+  .animate-text-fade {
+    animation: text-fade 1.5s ease-out;
+  }
+  /* in your global CSS or a CSS file */
+.text-shadow-xl {
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1), 1px 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px #335230; /* Outline (stroke) effect */
+}

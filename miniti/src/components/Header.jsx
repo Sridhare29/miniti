@@ -7,13 +7,8 @@ import {
   Heart,
   ShoppingCart,
   User,
-  Lock,
   Mail,
   Phone,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Github,
 } from "lucide-react";
 
 const Header = () => {
@@ -31,107 +26,106 @@ const Header = () => {
             {/* Contact Information */}
             <ul className="flex items-center gap-8 font-medium text-black">
               <li className="flex items-center gap-2 text-sm relative after:content-[''] after:absolute after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:right-[-16px]">
-                <Mail style={{ width: "16px", height: "16px" }}/>
+                <Mail style={{ width: "16px", height: "16px" }} />
                 <span className="text-xs">green-support@miniti.com</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <Phone style={{ width: "16px", height: "16px" }}/>
+                <Phone style={{ width: "16px", height: "16px" }} />
                 <span className="text-xs">+(91) ECO-HELP</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-{/* Logo */}
-<div className="bg-white">
-  <div className="w-full lg:w-11/12 mx-auto">
-    <div className="h-[60px] flex justify-between items-center">
-      {/* Logo Section */}
-      <div className="w-1/4">
-        <Link to="/">
-          <img
-            className="h-[50px]"
-            src="http://localhost:3000/images/logo.png"
-            alt="Logo"
-          />
-        </Link>
-      </div>
-
-      {/* Navigation */}
-      <div className="w-3/4 flex items-center justify-between">
-        <ul className="flex items-center gap-6 text-sm font-medium p-2 border-2 border-[#ededed] bg-[#fffff] rounded-2xl">
-          <li>
-            <Link
-              to="/"
-              className={`p-1 ${
-                pathname === "/" ? "text-[#4DA674]" : "text-slate-600"
-              }`}
-            >
-              Marketplace
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/shop"
-              className={`p-1 ${
-                pathname === "/shop" ? "text-[#4DA674]" : "text-slate-600"
-              }`}
-            >
-              Recycle Hub
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/blog"
-              className={`p-1 ${
-                pathname === "/blog" ? "text-[#4DA674]" : "text-slate-600"
-              }`}
-            >
-              Eco Insights
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className={`p-1 ${
-                pathname === "/about" ? "text-[#4DA674]" : "text-slate-600"
-              }`}
-            >
-              Our Mission
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className={`p-1 ${
-                pathname === "/contact" ? "text-[#4DA674]" : "text-slate-600"
-              }`}
-            >
-              Connect
-            </Link>
-          </li>
-        </ul>
-
-        {/* Cart and Wishlist */}
-        <div className="flex items-center mr-6 gap-3">
-          <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
-            <Heart className="text-[#4DA674] text-sm"   style={{ width: "18px", height: "18px" }}  />
-            <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
-              {wishlist_count}
+      {/* Logo */}
+      <div className="bg-white">
+        <div className="w-full lg:w-11/12 mx-auto">
+          <div className="h-[60px] flex justify-between items-center">
+            {/* Logo Section */}
+            <div className="w-1/4">
+              <Link to="/">
+                <img
+                  className="h-[50px]"
+                  src="http://localhost:3000/images/logo.png"
+                  alt="Logo"
+                />
+              </Link>
             </div>
-          </div>
-          <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
-            <ShoppingCart className="text-[#4DA674]"   style={{ width: "18px", height: "18px" }}             />
-            <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
-              {wishlist_count}
+
+            {/* Navigation */}
+            <div className="w-3/4 flex items-center justify-between">
+              <ul className="flex items-center gap-6 text-sm font-medium p-2 border-2 border-[#ededed] bg-[#ffffff] rounded-2xl">
+                <li>
+                  <a
+                    href="#main-banner"
+                    className="p-1 text-slate-600 hover:text-[#4DA674]"
+                  >
+                    Marketplace
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about-banner"
+                    className="p-1 text-slate-600 hover:text-[#4DA674]"
+                  >
+                    Eco Insights
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/shop"
+                    className={`p-1 ${
+                      pathname === "/marketprice"
+                        ? "text-[#4DA674]"
+                        : "text-slate-600"
+                    }`}
+                  >
+                    Recycle Hub
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#services-banner"
+                    className="p-1 text-slate-600 hover:text-[#4DA674]"
+                  >
+                    Our Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#booking-banner"
+                    className="p-1 text-slate-600 hover:text-[#4DA674]"
+                  >
+                    Connect
+                  </a>
+                </li>
+              </ul>
+
+              {/* Cart and Wishlist */}
+              <div className="flex items-center mr-6 gap-3">
+                <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
+                  <Heart
+                    className="text-[#4DA674] text-sm"
+                    style={{ width: "18px", height: "18px" }}
+                  />
+                  <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
+                    {wishlist_count}
+                  </div>
+                </div>
+                <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
+                  <ShoppingCart
+                    className="text-[#4DA674]"
+                    style={{ width: "18px", height: "18px" }}
+                  />
+                  <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
+                    {wishlist_count}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
 
       {/* only at sm - menu  visible    */}
       <div className="hidden md-lg:block">
