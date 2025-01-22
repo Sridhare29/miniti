@@ -1,168 +1,223 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { createPickup } from "../state/actions/Pickup.action";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Package, 
+  Calendar, 
+  Clock, 
+  MapPin, 
+  Truck, 
+  Send 
+} from 'lucide-react';
+import ecoabs from "../../src/image/WelcomeBanner.png";
+        
+        
 
 const BookRequest = () => {
-  const dispatch = useDispatch();
-  const { pickups, loading, error } = useSelector((state) => state.pickup);
-
   const [formData, setFormData] = useState({
-    pickupSlot: "",
-    expectedWeight: "",
-    message: "",
-    status: "",
-    pickupDate: "",
-    addressId: "",
+    pickupSlot: '',
+    expectedWeight: '',
+    pickupAddress: '',
+    message: '',
+    pickupDate: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createPickup(formData));
+    setIsSubmitting(true);
+    
+    // Simulate submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      // Reset form or show success message
+    }, 2000);
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
-        {error && (
-          <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700">
-            {error}
-          </div>
-        )}
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Image Layer */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-10 z-0">
+        <img src={ecoabs} alt="leaf" className="w-full h-full object-contain" />
+        </div>      
 
-        {loading && (
-          <div className="mb-4 p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-700">
-            Loading...
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Pickup Request</h2>
-            <p className="mt-2 text-sm text-gray-600">
-              Please fill in the details below
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Pickup Slot
-                <input
-                  type="text"
-                  name="pickupSlot"
-                  value={formData.pickupSlot}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </label>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Expected Weight
-                <select
-                  type="text"
-                  name="expectedWeight"
-                  value={formData.expectedWeight}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                  <option value="">Select Expected Weight</option>
-                  <option value="pending">5Kg-10Kg</option>
-                  <option value="confirmed">10Kg-20Kg</option>
-                  <option value="cancelled">More than 20Kg</option>
-                </select>
-                              </label>
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700">
-                Message
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="3"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </label>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Status
-                <select
-                  name="status"
-                  value={formData.status}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                >
-                  <option value="">Select Status</option>
-                  <option value="pending">Pending</option>
-                  <option value="confirmed">Confirmed</option>
-                  <option value="cancelled">Cancelled</option>
-                </select>
-              </label>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Pickup Date
-                <input
-                  type="date"
-                  name="pickupDate"
-                  value={formData.pickupDate}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </label>
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700">
-                Address ID
-                <input
-                  type="text"
-                  name="addressId"
-                  value={formData.addressId}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </label>
-            </div>
-          </div>
-
-          <div className="pt-5">
-            <button
-              type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform transition hover:scale-105"
-            >
-              Submit Pickup Request
-            </button>
-          </div>
-        </form>
-
-        <div className="mt-8">
-          <h3 className="text-lg font-bold text-gray-900">Existing Pickup Requests</h3>
-          <ul className="mt-4 space-y-2">
-            {pickups.map((pickup, index) => (
-              <li
-                key={index}
-                className="p-4 bg-gray-50 border rounded-md shadow-sm text-gray-800"
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-12">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-5xl bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden border border-[#335230]"
+        >
+          {/* Banner Section */}
+          <div className="relative bg-gradient-to-r from-[#335230] to-[#4a7440] text-white p-10">
+            <div className="absolute inset-0 opacity-20">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 1440 320" 
+                className="w-full h-full"
               >
-                {pickup.pickupSlot} - {pickup.pickupDate} ({pickup.status})
-              </li>
-            ))}
-          </ul>
-        </div>
+                <path 
+                  fill="white" 
+                  fillOpacity="1" 
+                  d="M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,202.7C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320L192,320L96,320L0,320Z"
+                ></path>
+              </svg>
+            </div>
+            
+            <div className="relative z-10 flex items-center justify-between">
+              <div>
+                <motion.h1 
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  className="text-4xl font-bold mb-4 flex items-center gap-4"
+                >
+                  <Truck className="w-12 h-12" />
+                  Pickup Scheduling
+                </motion.h1>
+                <p className="text-lg opacity-80 max-w-xl">
+                  Streamline your pickup process with our easy-to-use scheduling system. 
+                  Quick, convenient, and tailored to your needs.
+                </p>
+              </div>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="hidden md:block"
+              >
+                <Package className="w-32 h-32 text-white/30" />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Form Section */}
+          <form onSubmit={handleSubmit} className="p-10 space-y-6 bg-white">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                {/* Pickup Slot */}
+                <div className="relative">
+                  <label className="block mb-2 flex items-center gap-2 text-slate-700 font-semibold">
+                    <Clock className="w-5 h-5 text-[#335230]" />
+                    Pickup Slot
+                  </label>
+                  <select
+                    name="pickupSlot"
+                    value={formData.pickupSlot}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230] transition"
+                  >
+                    <option value="">Select Time Slot</option>
+                    <option value="morning">Morning (8-11 AM)</option>
+                    <option value="afternoon">Afternoon (12-3 PM)</option>
+                    <option value="evening">Evening (4-7 PM)</option>
+                  </select>
+                </div>
+
+                {/* Pickup Address */}
+                <div className="relative">
+                  <label className="block mb-2 flex items-center gap-2 text-slate-700 font-semibold">
+                    <MapPin className="w-5 h-5 text-[#335230]" />
+                    Pickup Address
+                  </label>
+                  <input
+                    type="text"
+                    name="pickupAddress"
+                    value={formData.pickupAddress}
+                    onChange={handleChange}
+                    required
+                    placeholder="Enter pickup location"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230] transition"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {/* Expected Weight */}
+                <div className="relative">
+                  <label className="block mb-2 flex items-center gap-2 text-slate-700 font-semibold">
+                    <Package className="w-5 h-5 text-[#335230]" />
+                    Expected Weight
+                  </label>
+                  <select
+                    name="expectedWeight"
+                    value={formData.expectedWeight}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230] transition"
+                  >
+                    <option value="">Select Weight Range</option>
+                    <option value="5-10">5-10 Kg</option>
+                    <option value="10-20">10-20 Kg</option>
+                    <option value="20+">20+ Kg</option>
+                  </select>
+                </div>
+
+                {/* Pickup Date */}
+                <div className="relative">
+                  <label className="block mb-2 flex items-center gap-2 text-slate-700 font-semibold">
+                    <Calendar className="w-5 h-5 text-[#335230]" />
+                    Pickup Date
+                  </label>
+                  <input
+                    type="date"
+                    name="pickupDate"
+                    value={formData.pickupDate}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230] transition"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Message */}
+            <div className="relative">
+              <label className="block mb-2 text-slate-700 font-semibold">
+                Additional Instructions
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Any special instructions or notes..."
+                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230] transition"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full py-4 rounded-lg text-white font-bold flex items-center justify-center gap-3 transition ${
+                isSubmitting 
+                  ? 'bg-slate-400 cursor-not-allowed' 
+                  : 'bg-gradient-to-r from-[#335230] to-[#4a7440] hover:from-[#29421c] hover:to-[#3e5a2d]'
+              }`}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="animate-spin">◌</span>
+                  Processing...
+                </>
+              ) : (
+                <>
+                  <Send className="w-5 h-5" />
+                  Schedule Pickup
+                </>
+              )}
+            </motion.button>
+          </form>
+        </motion.div>
       </div>
     </div>
   );
