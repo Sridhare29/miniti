@@ -2,32 +2,50 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Package, Calendar, Clock, MapPin, Truck } from 'lucide-react';
 import ecoabs from "../image/WelcomeBanner.png";
-
+import { useDispatch } from 'react-redux';
+import { createPickup } from '../state/actions/Pickup.action';
 const BookRequest = () => {
+  const dispatch = useDispatch();
+  
   const [formData, setFormData] = useState({
     pickupSlot: '',
     expectedWeight: '',
     pickupAddress: '',
     message: '',
     pickupDate: '',
+    status: 'started',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await dispatch(createPickup(formData));
+      // Clear form after successful submission
+      setFormData({
+        pickupSlot: '',
+        expectedWeight: '',
+        pickupAddress: '',
+        message: '',
+        pickupDate: '',
+      });
+      // You can add a success message or redirect here
+    } catch (error) {
+      console.error('Failed to schedule pickup:', error);
+      // Handle error (show error message to user)
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-    }, 2000);
-  };
 
   return (
     <div className="relative h-screen overflow-hidden flex flex-col">
@@ -146,13 +164,13 @@ const BookRequest = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows="3"
+                // rows="3"
                 placeholder="Any special instructions..."
                 className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230]"
               />
             </div>
 
-            <motion.button
+            <button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
@@ -164,7 +182,7 @@ const BookRequest = () => {
               }`}
             >
               {isSubmitting ? 'Processing...' : 'Schedule Pickup'}
-            </motion.button>
+            </button>
           </form>
         </motion.div>
       </div>

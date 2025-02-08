@@ -99,7 +99,7 @@ const Header = () => {
                 <li key={index}>
                   <Link
                     to={nav.path}
-                    className={`block py-2 ${pathname === nav.path ? "text-[#059473] bg-[#e9fbe6] rounded-md px-2" : "text-slate-600 hover:bg-gray-100 rounded-md px-2"}`}
+                    className={`block py-2 ${pathname === nav.path ? "text-[#948105] bg-[#e9fbe6] rounded-md px-2" : "text-slate-600 hover:bg-gray-100 rounded-md px-2"}`}
                   >
                     {nav.label}
                   </Link>
