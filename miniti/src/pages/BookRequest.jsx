@@ -4,51 +4,71 @@ import { Package, Calendar, Clock, MapPin, Truck } from 'lucide-react';
 import ecoabs from "../image/WelcomeBanner.png";
 import { useDispatch } from 'react-redux';
 import { createPickup } from '../state/actions/Pickup.action';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const BookRequest = () => {
   const dispatch = useDispatch();
   
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     pickupSlot: '',
     expectedWeight: '',
     pickupAddress: '',
     message: '',
     pickupDate: '',
     status: 'started',
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const resetForm = () => {
+    setFormData(initialFormState);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
-      await dispatch(createPickup(formData));
-      // Clear form after successful submission
-      setFormData({
-        pickupSlot: '',
-        expectedWeight: '',
-        pickupAddress: '',
-        message: '',
-        pickupDate: '',
-      });
-      // You can add a success message or redirect here
+      const result = await dispatch(createPickup(formData));
+      // Check if the action was successful
+      console.log(result);
+      if (result.payload && result.payload.status === 201) {
+        toast.success('Pickup scheduled successfully!', {
+          position: "top-right",
+          autoClose: 3000
+        });
+        resetForm();
+      } else {
+        // Handle error case
+        toast.error('Failed to schedule pickup. Please try again.', {
+          position: "top-right",
+          autoClose: 3000
+        });
+      }
     } catch (error) {
       console.error('Failed to schedule pickup:', error);
-      // Handle error (show error message to user)
+      toast.error(error.message || 'Failed to schedule pickup. Please try again.', {
+        position: "top-right",
+        autoClose: 3000
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
   return (
     <div className="relative h-screen overflow-hidden flex flex-col">
+      <ToastContainer/>
       {/* Background Image */}
       <div className="absolute bottom-0 w-full z-0">
         <img
