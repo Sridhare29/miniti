@@ -51,8 +51,11 @@ const Header = () => {
                   </Link>
                 </li>
                 <li><a href="#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Our Services</a></li>
-                <li><a href="#booking-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Connect</a></li>
-              </ul>
+                <li>
+                  <Link to="/booking" className={`p-1 ${pathname === "/marketprice" ? "text-[#4DA674]" : "text-slate-600"}`}>
+                    Bookings
+                  </Link>
+                </li>              </ul>
 
               {/* Cart and Wishlist */}
               <div className="flex items-center mr-6 gap-3">

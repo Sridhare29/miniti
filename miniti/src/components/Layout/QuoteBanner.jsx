@@ -33,7 +33,7 @@ export const QuoteBanner = () => {
       {/* Decorative Leaves */}
       <div className="absolute w-full h-full top-0 left-0">
         {/* Top Left Leaf */}
-        <div className="absolute top-10 left-10 w-16 h-16 lg:w-20 lg:h-20 transform -rotate-45 animate-float">
+        <div className="absolute top-20 left-10 w-16 h-16 lg:w-20 lg:h-20 transform -rotate-45 animate-float">
           <img
             src={leafImage}
             alt="decorative leaf"

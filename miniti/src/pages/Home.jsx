@@ -6,6 +6,7 @@ import AboutBanner from '../components/Layout/AboutBanner'
 import OurServicesBanner from '../components/Layout/OurServicesBanner'
 import BookingBanner from '../components/Layout/BookingBanner'
 import EcoFooter from '../components/Layout/EcoFooter'
+import HowItWorks from '../components/Layout/HowItWorks'
 
 function Home() {
   return (
@@ -14,14 +15,14 @@ function Home() {
       <section id="main-banner">
         <MainBanner />
       </section>
-      <section id="quote-banner">
-        <QuoteBanner />
-      </section>
       <section id="about-banner">
         <AboutBanner />
       </section>
+      <section id="quote-banner">
+        <QuoteBanner />
+      </section>
       <section id="services-banner">
-        <OurServicesBanner />
+        <HowItWorks />
       </section>
       <section id="booking-banner">
         <BookingBanner />
