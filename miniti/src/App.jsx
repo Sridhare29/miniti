@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import BookRequest from './pages/BookRequest';
 import MyBooking from './pages/MyBooking';
+import ScrapRate from './pages/ScrapRate';
 function App() {
   return (
     <BrowserRouter>
@@ -11,6 +12,7 @@ function App() {
       <Route path='/erorr' element={<NotFound/>}/>
       <Route path='/request' element={<BookRequest/>}/>
       <Route path='/booking' element={<MyBooking/>}/>
+      <Route path='/scraprate' element={<ScrapRate/>}/>
     </Routes>
     </BrowserRouter>
   );

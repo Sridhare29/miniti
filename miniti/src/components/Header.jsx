@@ -46,7 +46,7 @@ const Header = () => {
                 <li><a href="#main-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Marketplace</a></li>
                 <li><a href="#about-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Eco Insights</a></li>
                 <li>
-                  <Link to="/shop" className={`p-1 ${pathname === "/marketprice" ? "text-[#4DA674]" : "text-slate-600"}`}>
+                  <Link to="/scraprate" className={`p-1 ${pathname === "/marketprice" ? "text-[#4DA674]" : "text-slate-600"}`}>
                     Recycle Hub
                   </Link>
                 </li>
