@@ -1,13 +1,13 @@
 import React from 'react';
 
 const PriceCard = ({ title, rate, note }) => (
-  <div className="grid grid-col-4 relative group p-4 bg-white rounded-lg w-[20%] shadow-md hover:shadow-lg transition-all duration-300 border-2 border-[#cae4c7]">
+  <div className="relative group p-4 bg-white rounded-lg w-full shadow-md hover:shadow-lg transition-all duration-300 border-2 border-[#cae4c7] mb-4">
     <h3 className="text-lg font-semibold text-[#335230] mb-2">{title}</h3>
     <div className="text-[#baa53c] font-bold text-xl mb-1">₹{rate}</div>
     {note && <p className="text-sm text-gray-600 italic">{note}</p>}
     <div className="absolute -right-2 -top-2 w-8 h-8 bg-[#cae4c7] opacity-20 rounded-full"></div>
   </div>
-);  
+);
 
 const CategorySection = ({ title, items }) => (
   <div className="mb-8">
