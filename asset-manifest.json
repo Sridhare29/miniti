@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/miniti/static/css/main.13c8808f.css",
-    "main.js": "/miniti/static/js/main.9a149046.js",
-    "static/media/WelcomeBanner.png": "/miniti/static/media/WelcomeBanner.d968871a9584dc5c30f6.png",
-    "static/media/Good1.png": "/miniti/static/media/Good1.7a456be82ab01d3ac950.png",
-    "static/media/Eco1.png": "/miniti/static/media/Eco1.dd5e2e2564c1f9d8f1c3.png",
-    "static/media/Trust1.png": "/miniti/static/media/Trust1.28cfb4024a24728020c9.png",
-    "static/media/Rate1.png": "/miniti/static/media/Rate1.d63bb3881dceac0d1995.png",
-    "static/media/Img3.png": "/miniti/static/media/Img3.b3229a0729f0cafe135a.png",
-    "static/media/Img1.png": "/miniti/static/media/Img1.431f3ce8bab231e2833f.png",
-    "static/media/Img2.png": "/miniti/static/media/Img2.b60ef316092626488eb3.png",
-    "static/media/monstera_17259470 (1).png": "/miniti/static/media/monstera_17259470 (1).6366e7d4ab06fe044fe3.png",
-    "static/media/tealeafimg.png": "/miniti/static/media/tealeafimg.e2c94b6d31c2eee01eff.png",
-    "index.html": "/miniti/index.html",
-    "main.13c8808f.css.map": "/miniti/static/css/main.13c8808f.css.map",
-    "main.9a149046.js.map": "/miniti/static/js/main.9a149046.js.map"
+    "main.css": "/static/css/main.13c8808f.css",
+    "main.js": "/static/js/main.fa42fe57.js",
+    "static/media/WelcomeBanner.png": "/static/media/WelcomeBanner.d968871a9584dc5c30f6.png",
+    "static/media/Good1.png": "/static/media/Good1.7a456be82ab01d3ac950.png",
+    "static/media/Eco1.png": "/static/media/Eco1.dd5e2e2564c1f9d8f1c3.png",
+    "static/media/Trust1.png": "/static/media/Trust1.28cfb4024a24728020c9.png",
+    "static/media/Rate1.png": "/static/media/Rate1.d63bb3881dceac0d1995.png",
+    "static/media/Img3.png": "/static/media/Img3.b3229a0729f0cafe135a.png",
+    "static/media/Img1.png": "/static/media/Img1.431f3ce8bab231e2833f.png",
+    "static/media/Img2.png": "/static/media/Img2.b60ef316092626488eb3.png",
+    "static/media/monstera_17259470 (1).png": "/static/media/monstera_17259470 (1).6366e7d4ab06fe044fe3.png",
+    "static/media/tealeafimg.png": "/static/media/tealeafimg.e2c94b6d31c2eee01eff.png",
+    "index.html": "/index.html",
+    "main.13c8808f.css.map": "/static/css/main.13c8808f.css.map",
+    "main.fa42fe57.js.map": "/static/js/main.fa42fe57.js.map"
   },
   "entrypoints": [
     "static/css/main.13c8808f.css",
-    "static/js/main.9a149046.js"
+    "static/js/main.fa42fe57.js"
   ]
 }
