@@ -8,7 +8,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt
 } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import logo_miniti from "../../image/logo.png";
 
 const EcoFooter = () => {
   const quickLinks = [
@@ -53,7 +53,7 @@ const EcoFooter = () => {
           {/* Brand Section */}
           <div className="flex flex-col items-start w-full lg:w-1/4 space-y-4 text-[#335230]">
             <img 
-              src="http://localhost:3000/images/logo.png" 
+              src={logo_miniti}
               alt="Miniti Logo" 
               className="h-12" 
             />

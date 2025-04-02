@@ -13,7 +13,7 @@ function Home() {
     <div className="w-full">
       <Header />
       <section id="main-banner">
-        <MainBanner />
+        <MainBanner name = 'Miniti'/>
       </section>
       <section id="about-banner">
         <AboutBanner />

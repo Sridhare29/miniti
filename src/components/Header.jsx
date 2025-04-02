@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
 import { Leaf, Menu, Heart, ShoppingCart, User, Mail, Phone } from "lucide-react";
+import logo_miniti from "../image/logo.png";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -36,7 +37,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className="w-1/4">
               <Link to="/">
-                <img className="h-[50px]" src="http://localhost:3000/images/logo.png" alt="Logo" />
+                <img className="h-[50px]" src={logo_miniti} alt="Logo" />
               </Link>
             </div>
 
@@ -59,12 +60,12 @@ const Header = () => {
 
               {/* Cart and Wishlist */}
               <div className="flex items-center mr-6 gap-3">
-                <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
+                {/* <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
                   <Heart className="text-[#4DA674] text-sm" style={{ width: "18px", height: "18px" }} />
                   <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
                     {wishlistCount}
                   </div>
-                </div>
+                </div> */}
                 <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
                   <ShoppingCart className="text-[#4DA674]" style={{ width: "18px", height: "18px" }} />
                   <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
@@ -87,7 +88,7 @@ const Header = () => {
           <div className="flex flex-col gap-8">
             {/* Logo */}
             <Link to="/" className="flex justify-start items-center">
-              <img src="http://localhost:3000/images/logo.png" alt="Logo" className="h-10 w-auto" />
+              <img src={logo_miniti} alt="Logo" className="h-10 w-auto" />
             </Link>
 
             {/* Navigation Links */}

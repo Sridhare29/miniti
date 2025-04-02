@@ -4,7 +4,7 @@ import leafImage from "../../image/monstera_17259470 (1).png";
 import ecoabs from "../../image/WelcomeBanner.png";
 import { useNavigate } from 'react-router-dom'
 
-const MainBanner = () => {
+const MainBanner = (props) => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const MainBanner = () => {
       {/* Background Text */}
       <div className="absolute w-full flex items-center justify-center top-28 md-lg:pt-28">
         <h1 className="text-[150px] lg:text-[200px] font-black text-[#cae4c7] tracking-wider opacity-30">
-          MINITI
+          props.name
         </h1>
       </div>
 
