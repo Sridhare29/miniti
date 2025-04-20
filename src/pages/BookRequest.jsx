@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import successAnim from '../image/Lottie/Sucess.json';
 import errorAnim from '../image/Lottie/Failed.json';
 import LottieToast from '../Utils/LottieToast'; 
+import PopupModal from '../Utils/PopupModal';
 
 
 const BookRequest = () => {
@@ -43,24 +44,29 @@ const BookRequest = () => {
     setIsSubmitting(true);
   
     try {
-      // Simulate submission — replace with your actual logic
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await dispatch(createPickup(formData));
   
-      toast.success(<LottieToast animationData={successAnim} message="Pickup Scheduled Successfully!" />, {
-        autoClose: 4000,
-      });
-  
-      resetForm();
+      if (response?.success) {
+        setPopup({
+          show: true,
+          success: true,
+          message: 'Pickup Scheduled Successfully!',
+        });
+        resetForm();
+      } else {
+        throw new Error(response?.message || 'Something went wrong');
+      }
     } catch (err) {
-      toast.error(<LottieToast animationData={errorAnim} message="Failed to schedule pickup. Please try again." />, {
-        autoClose: 4000,
+      setPopup({
+        show: true,
+        success: false,
+        message: err.message || 'Failed to schedule pickup. Please try again.',
       });
     } finally {
       setIsSubmitting(false);
     }
   };
   
-
   
 
   const handleChange = (e) => {
@@ -189,6 +195,12 @@ const BookRequest = () => {
             >
               {isSubmitting ? 'Processing...' : 'Schedule Pickup'}
             </button>
+            <PopupModal
+              show={popup.show}
+              onClose={() => setPopup({ ...popup, show: false })}
+              animationData={popup.success ? successAnim : errorAnim}
+              message={popup.message}
+            />
           </form>
         </motion.div>
       </div>
