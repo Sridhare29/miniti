@@ -7,6 +7,10 @@ import { createPickup } from '../state/actions/Pickup.action';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getAddress } from '../state/actions/Address.action';
+import 'react-toastify/dist/ReactToastify.css';
+import successAnim from '../image/Lottie/Sucess.json';
+import errorAnim from '../image/Lottie/Failed.json';
+import LottieToast from '../Utils/LottieToast'; 
 
 
 const BookRequest = () => {
@@ -20,7 +24,12 @@ const BookRequest = () => {
     pickupDate: '',
     status: 'started',
   };
-
+  const [popup, setPopup] = useState({
+    show: false,
+    success: true,
+    message: '',
+  });
+  
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const x =  dispatch(getAddress());
@@ -33,8 +42,24 @@ const BookRequest = () => {
     e.preventDefault();
     setIsSubmitting(true);
   
-
+    try {
+      // Simulate submission — replace with your actual logic
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+  
+      toast.success(<LottieToast animationData={successAnim} message="Pickup Scheduled Successfully!" />, {
+        autoClose: 4000,
+      });
+  
+      resetForm();
+    } catch (err) {
+      toast.error(<LottieToast animationData={errorAnim} message="Failed to schedule pickup. Please try again." />, {
+        autoClose: 4000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+  
 
   
 
@@ -123,20 +148,6 @@ const BookRequest = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              {/* <div>
-                <label className="block mb-1 text-sm font-semibold text-slate-700">
-                  <MapPin className="inline-block w-4 h-4 text-[#335230]" /> Pickup Address
-                </label>
-                <input
-                  type="text"
-                  name="pickupAddress"
-                  value={formData.pickupAddress}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter pickup location"
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230]"
-                />
-              </div> */}
 
               <div>
                 <label className="block mb-1 text-sm font-semibold text-slate-700">
