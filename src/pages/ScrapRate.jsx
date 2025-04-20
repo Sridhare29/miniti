@@ -1,7 +1,17 @@
 import React from 'react';
+import apiFactory from '../Api/@factories/api.factory';
+import { services } from '../Api';
+import imagerate from '../image/Aboutus/Eco2.png';
 
-const PriceCard = ({ title, rate, note }) => (
+const PriceCard = ({ title, rate, note, imgSrc }) => (
   <div className="relative group p-4 bg-white rounded-lg w-full shadow-md hover:shadow-lg transition-all duration-300 border-2 border-[#cae4c7] mb-4">
+    {imgSrc && (
+      <img
+        src= {imagerate}
+        alt={title}
+        className="w-full h-40 object-cover rounded-md mb-3"
+      />
+    )}
     <h3 className="text-lg font-semibold text-[#335230] mb-2">{title}</h3>
     <div className="text-[#baa53c] font-bold text-xl mb-1">₹{rate}</div>
     {note && <p className="text-sm text-gray-600 italic">{note}</p>}
@@ -9,10 +19,11 @@ const PriceCard = ({ title, rate, note }) => (
   </div>
 );
 
+
 const CategorySection = ({ title, items }) => (
   <div className="mb-8">
     <h2 className="text-2xl font-bold text-[#335230] mb-4 border-b-2 border-[#cae4c7] pb-2">{title}</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {items.map((item, index) => (
         <PriceCard key={index} {...item} />
       ))}
@@ -85,6 +96,16 @@ const ScrapRate = () => {
     }
   };
 
+  async function fetchAddress() {
+    try {
+      const data = await services.AddressApi.api.getAddressData();
+      console.log('Fetched address data:', data);
+    } catch (error) {
+      console.error('Error fetching address data:', error.message);
+    }
+  }
+  
+  fetchAddress();
   return (
     <div className="relative min-h-screen bg-gray-50 py-12 px-4">
       {/* Background Text */}

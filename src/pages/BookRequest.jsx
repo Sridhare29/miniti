@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { createPickup } from '../state/actions/Pickup.action';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getAddress } from '../state/actions/Address.action';
 
 
 const BookRequest = () => {
@@ -14,7 +15,7 @@ const BookRequest = () => {
   const initialFormState = {
     pickupSlot: '',
     expectedWeight: '',
-    pickupAddress: '',
+    // pickupAddress: '',
     message: '',
     pickupDate: '',
     status: 'started',
@@ -22,7 +23,8 @@ const BookRequest = () => {
 
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const x =  dispatch(getAddress());
+  console.log("x", x);  
   const resetForm = () => {
     setFormData(initialFormState);
   };
@@ -31,32 +33,7 @@ const BookRequest = () => {
     e.preventDefault();
     setIsSubmitting(true);
   
-    try {
-      const result = await dispatch(createPickup(formData));
-      // Check if the action was successful
-      console.log(result);
-      if (result.payload && result.payload.status === 201) {
-        toast.success('Pickup scheduled successfully!', {
-          position: "top-right",
-          autoClose: 3000
-        });
-        resetForm();
-      } else {
-        // Handle error case
-        toast.error('Failed to schedule pickup. Please try again.', {
-          position: "top-right",
-          autoClose: 3000
-        });
-      }
-    } catch (error) {
-      console.error('Failed to schedule pickup:', error);
-      toast.error(error.message || 'Failed to schedule pickup. Please try again.', {
-        position: "top-right",
-        autoClose: 3000
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+
   };
 
   
@@ -146,7 +123,7 @@ const BookRequest = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              <div>
+              {/* <div>
                 <label className="block mb-1 text-sm font-semibold text-slate-700">
                   <MapPin className="inline-block w-4 h-4 text-[#335230]" /> Pickup Address
                 </label>
@@ -159,7 +136,7 @@ const BookRequest = () => {
                   placeholder="Enter pickup location"
                   className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230]"
                 />
-              </div>
+              </div> */}
 
               <div>
                 <label className="block mb-1 text-sm font-semibold text-slate-700">
@@ -191,8 +168,6 @@ const BookRequest = () => {
             </div>
 
             <button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               type="submit"
               disabled={isSubmitting}
               className={`w-full py-2 rounded-lg text-white text-sm font-bold flex items-center justify-center gap-2 ${

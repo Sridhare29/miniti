@@ -9,6 +9,7 @@ export default apiFactory({
     try {
       const url = `${BASE_URL}/${apiSpecifications.address.version}/${apiSpecifications.address.key}`;
       const response = await http.get(url);
+      console.log("response.data", response.data);
       return response.data;
     } catch (error) {
       // More specific error handling
