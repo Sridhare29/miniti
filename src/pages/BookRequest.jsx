@@ -33,29 +33,26 @@ const BookRequest = () => {
   
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const x =  dispatch(getAddress());
-  console.log("x", x);  
   const resetForm = () => {
     setFormData(initialFormState);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
   
     try {
-      const response = await dispatch(createPickup(formData));
+      // const response = await dispatch(createPickup(formData));
   
-      if (response?.success) {
         setPopup({
           show: true,
           success: true,
           message: 'Pickup Scheduled Successfully!',
         });
         resetForm();
-      } else {
-        throw new Error(response?.message || 'Something went wrong');
-      }
+        setTimeout(() => {
+          window.location.href = '/booking';
+        }, 2000);
+
     } catch (err) {
       setPopup({
         show: true,
@@ -65,9 +62,7 @@ const BookRequest = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-  
-  
+  };  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -165,6 +160,7 @@ const BookRequest = () => {
                   value={formData.pickupDate}
                   onChange={handleChange}
                   required
+                  min={new Date().toISOString().split('T')[0]} 
                   className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230]"
                 />
               </div>

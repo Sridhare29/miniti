@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { CiMenuFries } from "react-icons/ci";
-import { Leaf, Menu, Heart, ShoppingCart, User, Mail, Phone } from "lucide-react";
+import { CircleUser, Menu, Heart, ShoppingCart, User, Mail, Phone } from "lucide-react";
 
 const Header = () => {
   const { pathname } = useLocation();
   const [showSidebar, setShowSidebar] = useState(true);
-  const wishlistCount = 3;
 
   return (
     <div className="w-full bg-white">
@@ -58,18 +56,16 @@ const Header = () => {
                 </li>              </ul>
 
               {/* Cart and Wishlist */}
-              <div className="flex items-center mr-6 gap-3">
-                <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
-                  <Heart className="text-[#4DA674] text-sm" style={{ width: "18px", height: "18px" }} />
-                  <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
-                    {wishlistCount}
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#EAF8E7] cursor-pointer transition duration-300 hover:shadow-lg" onClick={() => console.log("User Profile Clicked")}>
+                  <CircleUser className="text-[#4DA674]" size={24} />
                 </div>
-                <div className="relative flex items-center cursor-pointer p-2 rounded-full bg-[#EAF8E7]">
-                  <ShoppingCart className="text-[#4DA674]" style={{ width: "18px", height: "18px" }} />
-                  <div className="w-[12px] h-[12px] absolute bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center -top-[2px] -right-[2px]">
-                    {wishlistCount}
-                  </div>
+
+                {/* Dropdown Menu */}
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-100 shadow-md rounded-lg text-sm text-slate-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
+                  <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100">My Profile</Link>
+                  <Link to="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
+                  <button className="w-full text-left px-4 py-2 hover:bg-gray-100" onClick={() => console.log('Logout')}>Logout</button>
                 </div>
               </div>
             </div>
