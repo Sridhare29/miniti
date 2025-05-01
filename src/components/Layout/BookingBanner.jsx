@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import tealeafImage from "../../image/tealeafimg.png";
 import leafImage from "../../image/monstera_17259470 (1).png";
 import ecoabs from "../../image/WelcomeBanner.png";
+import bookingImg from "../../image/Booking/Waste management-amico.svg";
 
 const BookingBanner = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const BookingBanner = () => {
           {/* Main Image */}
           <div className="relative px-12 z-20 lg:absolute w-1/2 lg:-translate-y-1/2 mt-10 lg:mt-0 flex justify-start">
           <img 
-              src="http://localhost:3000/images/svg/Waste management-amico.svg" 
+              src={bookingImg} 
               alt="Recycling and Environmental Protection" 
               className="w-full max-w-md lg:max-w-lg transform hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
         />

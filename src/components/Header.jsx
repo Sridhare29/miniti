@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CircleUser, Menu, Heart, ShoppingCart, User, Mail, Phone } from "lucide-react";
+import logo from "../image/logo.png"; 
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -34,7 +35,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className="w-1/4">
               <Link to="/">
-                <img className="h-[50px]" src="http://localhost:3000/images/logo.png" alt="Logo" />
+                <img className="h-[50px]" src={logo} alt="Logo" />
               </Link>
             </div>
 
