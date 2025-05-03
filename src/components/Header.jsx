@@ -14,20 +14,6 @@ import {
 } from "lucide-react";
 import logoMiniti from "../image/logo.png"; 
 
-
-// // Simulating router functionality for demonstration
-// const useLocation = () => {
-//   return { pathname: "/booking" };
-// };
-
-// const Link = ({ to, children, className }) => {
-//   return (
-//     <a href={to} className={className}>
-//       {children}
-//     </a>
-//   );
-// };
-
 const Header = () => {
   const { pathname } = useLocation();
   const [showSidebar, setShowSidebar] = useState(true);
@@ -89,12 +75,12 @@ const Header = () => {
                     Recycle Hub
                   </Link>
                 </li>
-                <li><a href="/#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674] transition-colors">Our Services</a></li>
                 <li>
                   <Link to="/booking" className={`p-1 ${pathname === "/booking" ? "text-[#4DA674] transition-colors" : "text-slate-600 hover:text-[#4DA674]"}`}>
                     Bookings
                   </Link>
                 </li>
+                <li><a href="/#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Our Services</a></li>
               </ul>
 
               {/* User Profile with Eco Points */}
