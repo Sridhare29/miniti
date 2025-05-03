@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CircleUser, Menu, Heart, ShoppingCart, User, Mail, Phone } from "lucide-react";
-import logo from "../image/logo.png"; 
+import logoMiniti from "../image/logo.png"; 
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -35,7 +35,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className="w-1/4">
               <Link to="/">
-                <img className="h-[50px]" src={logo} alt="Logo" />
+                <img className="h-[50px]" src={logoMiniti} alt="Logo" />
               </Link>
             </div>
 
@@ -84,7 +84,7 @@ const Header = () => {
           <div className="flex flex-col gap-8">
             {/* Logo */}
             <Link to="/" className="flex justify-start items-center">
-              <img src="http://localhost:3000/images/logo.png" alt="Logo" className="h-10 w-auto" />
+              <img src={ logoMiniti } alt="Logo" className="h-10 w-auto" />
             </Link>
 
             {/* Navigation Links */}
