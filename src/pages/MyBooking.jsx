@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Header from "../components/Header";
+import { getAllPickup } from "../state/actions/Pickup.action";
+import { useDispatch } from "react-redux";
 
 const localizer = globalizeLocalizer(globalize);
 
@@ -30,7 +32,10 @@ const events = [
 const MyBooking = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [view, setView] = useState("month");
+  const dispatch = useDispatch();
 
+  const response = dispatch(getAllPickup());
+  console.log("Response from getAllPickup:", response);
   // Custom toolbar component
   const CustomToolbar = (toolbar) => {
     function goToBack() {

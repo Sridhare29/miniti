@@ -14,6 +14,11 @@ const pickupReducer = (state = initialState, action) => {
         loading: false,
         pickups: [...state.pickups, action.payload],
       };
+    case PickupActionTypes.GET_PICKUP:
+      return {
+        ...state,
+        pickups: action.payload,
+      };
     default:
       return state;
   }

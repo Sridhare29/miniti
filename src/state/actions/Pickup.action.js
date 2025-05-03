@@ -15,3 +15,18 @@ export const createPickup = (pickupData) => {
     }
   };
 };
+
+export const getAllPickup = () => {
+  return async (dispatch) => {
+    try {
+      const pickups = await services.PickupApi.api.GetallPickupRequest();
+      dispatch({
+        type: PickupActionTypes.GET_PICKUP,
+        payload: pickups,
+      });
+    } catch (error) {
+      console.error("Failed to get pickup:", error);
+      return [];
+    }
+  };
+};

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Package, Calendar, Clock, MapPin, Truck } from 'lucide-react';
 import ecoabs from "../image/WelcomeBanner.png";
 import { useDispatch } from 'react-redux';
-import { createPickup } from '../state/actions/Pickup.action';
+import { createPickup, getAllPickup } from '../state/actions/Pickup.action';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getAddress } from '../state/actions/Address.action';
@@ -41,8 +41,8 @@ const BookRequest = () => {
     setIsSubmitting(true);
   
     try {
-      // const response = await dispatch(createPickup(formData));
-  
+      const response = await dispatch(createPickup(formData));
+
         setPopup({
           show: true,
           success: true,
