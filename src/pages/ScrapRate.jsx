@@ -2,6 +2,7 @@ import React from 'react';
 import apiFactory from '../Api/@factories/api.factory';
 import { services } from '../Api';
 import imagerate from '../image/Aboutus/Eco2.png';
+import Header from '../components/Header';
 
 const PriceCard = ({ title, rate, note, imgSrc }) => (
   <div className="relative group p-4 bg-white rounded-lg w-full shadow-md hover:shadow-lg transition-all duration-300 border-2 border-[#cae4c7] mb-4">
@@ -107,8 +108,10 @@ const ScrapRate = () => {
   
   fetchAddress();
   return (
-    <div className="relative min-h-screen bg-gray-50 py-12 px-4">
-      {/* Background Text */}
+    <div >
+      <Header/>
+      <div className="relative min-h-screen bg-gray-50 py-2 px-4">
+              {/* Background Text */}
       <div className="absolute w-full flex items-center justify-center">
         <h1 className="text-6xl lg:text-8xl font-black text-[#cae4c7] tracking-wider opacity-30">
           PRICE LIST
@@ -126,6 +129,7 @@ const ScrapRate = () => {
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-32 h-32 bg-[#cae4c7] opacity-10 rounded-full -translate-x-16 -translate-y-16"></div>
       <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#cae4c7] opacity-10 rounded-full translate-x-16 translate-y-16"></div>
+      </div>
     </div>
   );
 };
