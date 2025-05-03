@@ -17,7 +17,7 @@ export default apiFactory({
     try {
       const url = `${BASE_URL}/${apiSpecifications.pickup.version}/${apiSpecifications.pickup.key}`;
       const response = await http.get(url);
-      return response.status;
+      return response.data;
     } catch (error) {
       throw error;
     }
