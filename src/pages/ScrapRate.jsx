@@ -40,13 +40,13 @@ const ScrapRate = () => {
         { title: "Newspaper", rate: "14/kg", note: "Market Rates Dropped Recently" },
         { title: "Office Paper (A3/A4)", rate: "14/kg" },
         { title: "Copies/Books", rate: "12/kg" },
-        { title: "Cardboard", rate: "8/kg", note: "To get quote for bulk qty. call at +91-8595358613" }
+        { title: "Cardboard", rate: "8/kg", note: "To get quote for bulk qty. call at +91-44-9099-2355" }
       ]
     },
     metals: {
       title: "Metals",
       items: [
-        { title: "Iron", rate: "26/kg", note: "To get quote for bulk qty. call at +91-8595358613" },
+        { title: "Iron", rate: "26/kg", note: "To get quote for bulk qty. call at +91-44-9099-2355" },
         { title: "Steel Utensils", rate: "40/kg" },
         { title: "Aluminium", rate: "105/kg" },
         { title: "Brass", rate: "305/kg" },
