@@ -59,7 +59,7 @@ const MainBanner = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative container mx-auto h-screen flex flex-col lg:flex-row items-start lg:items-center gap-10">
+      <div className="relative container mx-auto h-screen flex flex-col mt-6 lg:flex-row items-start lg:items-start gap-10">
         {/* Left Content */}
         <div className="z-10 lg:w-1/2 text-[#335230] space-y-6 mt-10 mx-12 lg:mt-0">
           <h2 className="text-5xl lg:text-5xl font-bold">
