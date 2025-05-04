@@ -63,7 +63,7 @@ const Header = () => {
 
       {/* Logo and Navigation */}
       <div className="bg-white">
-        <div className="w-full lg:w-11/12 mx-auto">
+        <div className="w-full lg:w-full mx-auto">
           <div className="h-[70px] flex justify-between items-center px-4 lg:px-0">
             {/* Logo Section */}
             <div className="w-1/4 flex items-center">

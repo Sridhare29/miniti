@@ -61,7 +61,7 @@ const MainBanner = () => {
       {/* Main Content */}
       <div className="relative container mx-auto h-screen flex flex-col mt-6 lg:flex-row items-start lg:items-start gap-10">
         {/* Left Content */}
-        <div className="z-10 lg:w-1/2 text-[#335230] space-y-6 mt-10 mx-12 lg:mt-0">
+        <div className="z-10 lg:w-1/2 text-[#335230] space-y-6 mt-10 mx-2 lg:mt-0">
           <h2 className="text-5xl lg:text-5xl font-bold">
             Turn Trash into
             <br />
@@ -72,7 +72,7 @@ const MainBanner = () => {
           </p>
           <button
             onClick={() => navigate('/request')}
-            className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-6 rounded-full font-bold hover:bg-orange-100 transition-colors flex items-center gap-2 group">
+            className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-4 rounded-full font-bold hover:bg-orange-100 transition-colors flex items-center gap-2 group">
             <span>Book Now</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
               <path d="M5 12h14"></path>
