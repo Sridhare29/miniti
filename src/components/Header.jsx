@@ -10,13 +10,15 @@ import {
   Settings, 
   User, 
   Calendar, 
-  Recycle
+  Recycle,
+  Menu,
+  X
 } from "lucide-react";
 import logoMiniti from "../image/logo.png"; 
 
 const Header = () => {
   const { pathname } = useLocation();
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   // Mock eco points data
@@ -28,10 +30,15 @@ const Header = () => {
     setShowProfileDropdown(!showProfileDropdown);
   };
 
+  // Toggle mobile sidebar
+  const toggleMobileSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
     <div className="w-full bg-white">
       {/* Top Header Section */}
-      <div className="header-top bg-[#c1E6BA] h-12 md-lg:hidden">
+      <div className="header-top bg-[#c1E6BA] h-12 hidden sm:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-[50px] text-slate-500">
             {/* Contact Information */}
@@ -42,7 +49,7 @@ const Header = () => {
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 text-green-700" />
-                <span className="text-xs">+(91) ECO-HELP</span>
+                <span className="text-xs">+(91) 44-9099-2355</span>
               </li>
             </ul>
             {/* Eco tips rotating text */}
@@ -57,16 +64,22 @@ const Header = () => {
       {/* Logo and Navigation */}
       <div className="bg-white">
         <div className="w-full lg:w-11/12 mx-auto">
-          <div className="h-[70px] flex justify-between items-center">
+          <div className="h-[70px] flex justify-between items-center px-4 lg:px-0">
             {/* Logo Section */}
-            <div className="w-1/4">
+            <div className="w-1/4 flex items-center">
+              <button 
+                className="mr-2 p-1 block lg:hidden text-gray-700"
+                onClick={toggleMobileSidebar}
+              >
+                <Menu className="w-6 h-6" />
+              </button>
               <Link to="/">
-                <img className="h-[50px]" src={logoMiniti} alt="Logo" />
+                <img className="h-[40px] sm:h-[50px]" src={logoMiniti} alt="Logo" />
               </Link>
             </div>
 
-            {/* Navigation */}
-            <div className="w-3/4 flex items-center justify-between">
+            {/* Navigation - Hide on mobile */}
+            <div className="hidden lg:flex w-3/4 items-center justify-between">
               <ul className="flex items-center gap-6 text-sm font-medium p-2 border-2 border-[#ededed] bg-[#ffffff] rounded-2xl">
                 <li><a href="/#main-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Marketplace</a></li>
                 <li><a href="/#about-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Eco Insights</a></li>
@@ -83,7 +96,7 @@ const Header = () => {
                 <li><a href="/#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Our Services</a></li>
               </ul>
 
-              {/* User Profile with Eco Points */}
+              {/* User Profile with Eco Points - For large screens */}
               <div className="relative px-2">
                 <div 
                   className="flex items-center gap-2 border border-green-100 px-3 py-2 rounded-full bg-gradient-to-r from-[#EAF8E7] to-[#E0F3DF] cursor-pointer hover:shadow-md transition-all duration-300"
@@ -166,42 +179,166 @@ const Header = () => {
                 )}
               </div>
             </div>
+
+            {/* Mobile Profile Button */}
+            <div className="block lg:hidden">
+              <div 
+                className="flex items-center gap-2 border border-green-100 px-2 py-1 rounded-full bg-gradient-to-r from-[#EAF8E7] to-[#E0F3DF] cursor-pointer"
+                onClick={toggleProfileDropdown}
+              >
+                <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#4DA674] text-white">
+                  <CircleUser className="w-5 h-5" />
+                </div>
+                <div className="flex items-center">
+                  <Leaf className="w-3 h-3 mr-1 text-green-600" />
+                  <span className="text-xs font-semibold text-[#4DA674]">{ecoPoints}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className="hidden md-lg:block">
+      {/* Mobile Sidebar */}
+      <div className={`fixed inset-0 z-50 lg:hidden ${showSidebar ? 'block' : 'hidden'}`}>
         {/* Backdrop */}
-        <div onClick={() => setShowSidebar(true)} className={`fixed duration-200 transition-all ${showSidebar ? "invisible" : "visible"} w-screen h-screen bg-[rgba(0,0,0,0.3)] top-0 left-0 z-20`}></div>
-
-        {/* Sidebar */}
-        <div className={`w-[300px] z-[9999] transition-all duration-300 fixed ${showSidebar ? "-left-[300px]" : "left-0"} top-0 overflow-y-auto bg-[#f9fafc] h-screen py-6 px-8 rounded-tr-2xl rounded-br-2xl shadow-lg`}>
-          <div className="flex flex-col gap-8">
-            {/* Logo */}
-            <Link to="/" className="flex justify-start items-center">
-              <img src={ logoMiniti } alt="Logo" className="h-10 w-auto" />
+        <div 
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity"
+          onClick={() => setShowSidebar(false)}
+        ></div>
+        
+        {/* Sidebar Panel */}
+        <div className="fixed inset-y-0 left-0 w-[80%] max-w-[300px] bg-white shadow-xl overflow-y-auto">
+          <div className="flex items-center justify-between p-4 border-b">
+            <Link to="/" onClick={() => setShowSidebar(false)}>
+              <img src={logoMiniti} alt="Logo" className="h-8" />
             </Link>
-
-            {/* Navigation Links */}
-            <ul className="flex flex-col gap-4 text-sm font-semibold uppercase">
-              {[
-                { label: "Marketplace", path: "/" },
-                { label: "Recycle Hub", path: "/shop" },
-                { label: "Eco Insights", path: "/blog" },
-                { label: "Our Mission", path: "/about" },
-                { label: "Connect", path: "/contact" },
-              ].map((nav, index) => (
-                <li key={index}>
-                  <Link
-                    to={nav.path}
-                    className={`block py-2 ${pathname === nav.path ? "text-[#948105] bg-[#e9fbe6] rounded-md px-2" : "text-slate-600 hover:bg-gray-100 rounded-md px-2"}`}
-                  >
-                    {nav.label}
-                  </Link>
-                </li>
-              ))}
+            <button 
+              className="p-1 rounded-full hover:bg-gray-100" 
+              onClick={() => setShowSidebar(false)}
+            >
+              <X className="w-5 h-5 text-gray-700" />
+            </button>
+          </div>
+          
+          {/* User Info for Mobile */}
+          <div className="p-4 border-b border-gray-100 bg-gradient-to-r from-green-50 to-[#E0F3DF]">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#4DA674] flex items-center justify-center text-white">
+                <User className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-800">Eco User</p>
+                <div className="flex items-center gap-1">
+                  <span className="text-xs font-medium text-green-800">{ecoLevel}</span>
+                  <div className="ml-1 px-1.5 py-0.5 bg-green-100 rounded-full flex items-center">
+                    <Leaf className="w-2 h-2 mr-1 text-green-600" />
+                    <span className="text-xs font-semibold text-[#4DA674]">{ecoPoints}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation Links */}
+          <nav className="p-4">
+            <ul className="space-y-1">
+              <li>
+                <a 
+                  href="/#main-banner" 
+                  className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Marketplace
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/#about-banner" 
+                  className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Eco Insights
+                </a>
+              </li>
+              <li>
+                <Link 
+                  to="/scraprate" 
+                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === "/scraprate" ? "text-[#4DA674]" : "text-gray-700"}`}
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Recycle Hub
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/booking" 
+                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === "/booking" ? "text-[#4DA674]" : "text-gray-700"}`}
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Bookings
+                </Link>
+              </li>
+              <li>
+                <a 
+                  href="/#services-banner" 
+                  className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Our Services
+                </a>
+              </li>
             </ul>
+          </nav>
+          
+          {/* Mobile Profile Links */}
+          <div className="mt-2 pt-2 border-t border-gray-100">
+            <Link 
+              to="/profile" 
+              className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
+              onClick={() => setShowSidebar(false)}
+            >
+              <User className="w-4 h-4 text-gray-600" />
+              <span>My Profile</span>
+            </Link>
+            <Link 
+              to="/my-bookings" 
+              className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
+              onClick={() => setShowSidebar(false)}
+            >
+              <Calendar className="w-4 h-4 text-gray-600" />
+              <span>My Bookings</span>
+            </Link>
+            <Link 
+              to="/eco-impact" 
+              className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
+              onClick={() => setShowSidebar(false)}
+            >
+              <Recycle className="w-4 h-4 text-gray-600" />
+              <span>My Eco Impact</span>
+            </Link>
+            <Link 
+              to="/settings" 
+              className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
+              onClick={() => setShowSidebar(false)}
+            >
+              <Settings className="w-4 h-4 text-gray-600" />
+              <span>Settings</span>
+            </Link>
+          </div>
+          
+          {/* Sign Out */}
+          <div className="px-4 py-4 mt-2 border-t border-gray-100">
+            <button 
+              className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+              onClick={() => {
+                console.log('Logout');
+                setShowSidebar(false);
+              }}
+            >
+              <LogOut className="w-4 h-4 text-gray-600" />
+              <span>Sign Out</span>
+            </button>
           </div>
         </div>
       </div>

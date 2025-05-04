@@ -7,21 +7,21 @@ import Img3 from '../../image/HowitsWork/Img3.png';
 const HowItWorks = () => {
   const steps = [
     {
-      title: "Schedule a pickup",
-      icon: <Package className="w-12 h-12 text-[#335230]" />,
-      description: "Book your pickup time that works best for you with our easy scheduling system",
+      title: "Request Your Collection",
+      icon: <Package className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-emerald-700" />,
+      description: "Select a convenient time for your recycling pickup with our simple booking system",
       image: Img1
     },
     {
-      title: "Pickup at your address",
-      icon: <MapPin className="w-12 h-12 text-[#335230]" />,
-      description: "We'll come to your specified location to collect your items",
+      title: "Doorstep Service",
+      icon: <MapPin className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-emerald-700" />,
+      description: "Our team arrives at your location to gather your recyclable materials",
       image: Img2
     },
     {
-      title: "Receive payment",
-      icon: <Wallet className="w-12 h-12 text-[#335230]" />,
-      description: "Get paid instantly through your preferred payment method",
+      title: "Instant Rewards",
+      icon: <Wallet className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-emerald-700" />,
+      description: "Earn rewards immediately through your chosen payment option",
       image: Img3
     }
   ];
@@ -33,15 +33,16 @@ const HowItWorks = () => {
       {/* Background Text */}
       <div className="absolute w-full flex items-center justify-center">
         <h1 className="text-6xl lg:text-8xl font-black text-[#cae4c7] tracking-wider opacity-30">
-          HOW IT WORKS
+        Our Simple Process
         </h1>
       </div>
 
+
       <div className="relative w-full max-w-8xl  mx-auto z-10">
-        <h2 className="text-4xl font-bold text-center  text-[#335230]">How It Works</h2>
+        <h2 className="text-4xl font-bold text-center  text-[#335230]">Our Simple Process</h2>
         
-        <div className="flex gap-8 mx-20 px-4">
-          {steps.map((step, index) => (
+        <div className="sm:grid sm: grid-cols-3 justify-center gap-6 sm:gap-8 mx-4 sm:mx-20 px-4 sm:px-6 lg:px-8 mt-12">
+        {steps.map((step, index) => (
             <div key={index} className="relative pb-8 justify-between m-4">
               <div className="bg-white rounded-lg shadow-lg p-6 h-full hover:shadow-xl transition-shadow duration-300">
                 <div className="flex flex-col items-center text-center space-y-4">
