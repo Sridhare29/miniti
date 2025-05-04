@@ -1,5 +1,4 @@
 import React from 'react';
-import apiFactory from '../Api/@factories/api.factory';
 import { services } from '../Api';
 import imagerate from '../image/Aboutus/Eco2.png';
 import Header from '../components/Header';
