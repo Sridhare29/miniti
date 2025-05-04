@@ -46,7 +46,7 @@ const EcoFooter = () => {
             </div>
             <div className="flex items-center gap-2">
               <FaPhoneAlt className="text-[#baa53c]" />
-              <span>+(91) ECO-HELP</span>
+              <span>+(91) 44-9099-2355</span>
             </div>
             <div className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#baa53c]" />
