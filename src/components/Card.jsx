@@ -1,9 +1,8 @@
-import React from "react";
 
 const Card = ({ title, description, image }) => {
   return (
     <div className="relative group overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#cae4c7] w-full">
-      {/* Image Section */} 
+      {/* Image Section */}
       <div className="relative h-64 overflow-hidden">
         <div className="absolute inset-0 bg-[#335230] opacity-10 group-hover:opacity-0 transition-opacity duration-300"></div>
         <img
@@ -20,13 +19,11 @@ const Card = ({ title, description, image }) => {
         <h3 className="text-2xl font-bold text-[#335230] mb-3 group-hover:text-[#baa53c] transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-[#335230]/80 leading-relaxed">
-          {description}
-        </p>
-        
+        <p className="text-[#335230]/80 leading-relaxed">{description}</p>
+
         {/* Decorative elements */}
         <div className="absolute w-20 h-20 -bottom-10 -left-10 bg-[#cae4c7] opacity-10 rounded-full"></div>
-        
+
         {/* Learn More button */}
         <div className="mt-4">
           {/* <button className="text-[#baa53c] font-semibold hover:text-[#335230] transition-colors duration-300 flex items-center gap-2">
@@ -53,6 +50,5 @@ const Card = ({ title, description, image }) => {
     </div>
   );
 };
-
 
 export default Card;
