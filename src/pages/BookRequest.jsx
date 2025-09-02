@@ -23,7 +23,7 @@ const BookRequest = () => {
     // pickupAddress: '',
     message: '',
     pickupDate: '',
-    status: 'started',
+    status: 'Pending',
   };
   const [popup, setPopup] = useState({
     show: false,
