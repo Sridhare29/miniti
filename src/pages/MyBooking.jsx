@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Calendar, globalizeLocalizer } from "react-big-calendar";
-import globalize from "globalize";
+import React, { useEffect, useState } from 'react';
+import { Calendar, globalizeLocalizer } from 'react-big-calendar';
+import globalize from 'globalize';
 import {
   ChevronLeft,
   ChevronRight,
@@ -11,11 +11,11 @@ import {
   X,
   DollarSign,
   Edit3,
-} from "lucide-react";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import Header from "../components/Header";
-import { getAllPickup } from "../state/actions/Pickup.action";
-import { useDispatch, useSelector } from "react-redux";
+} from 'lucide-react';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Header from '../components/Header';
+import { getAllPickup } from '../state/actions/Pickup.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const localizer = globalizeLocalizer(globalize);
 
@@ -26,62 +26,62 @@ const statusColors = {
     text: 'text-yellow-800',
     border: 'border-yellow-300',
     full: 'bg-yellow-500',
-    light: 'bg-yellow-50'
+    light: 'bg-yellow-50',
   },
   confirmed: {
     bg: 'bg-green-100',
     text: 'text-green-800',
     border: 'border-green-300',
     full: 'bg-green-500',
-    light: 'bg-green-50'
+    light: 'bg-green-50',
   },
   started: {
     bg: 'bg-blue-100',
     text: 'text-blue-800',
     border: 'border-blue-300',
     full: 'bg-blue-500',
-    light: 'bg-blue-50'
+    light: 'bg-blue-50',
   },
   completed: {
     bg: 'bg-gray-100',
     text: 'text-gray-800',
     border: 'border-gray-300',
     full: 'bg-gray-500',
-    light: 'bg-gray-50'
+    light: 'bg-gray-50',
   },
   cancelled: {
     bg: 'bg-red-100',
     text: 'text-red-800',
     border: 'border-red-300',
     full: 'bg-red-500',
-    light: 'bg-red-50'
-  }
+    light: 'bg-red-50',
+  },
 };
 
 const statusText = {
-  confirmed: "Confirmed",
-  started: "In Progress",
-  pending: "Pending",
-  completed: "Completed",
-  cancelled: "Cancelled"
+  confirmed: 'Confirmed',
+  started: 'In Progress',
+  pending: 'Pending',
+  completed: 'Completed',
+  cancelled: 'Cancelled',
 };
 
 const slotIcons = {
-  morning: "🌅",
-  afternoon: "☀️", 
-  evening: "🌆",
+  morning: '🌅',
+  afternoon: '☀️',
+  evening: '🌆',
 };
 
 const MyBooking = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [view, setView] = useState("month");
+  const [view, setView] = useState('month');
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [editFormData, setEditFormData] = useState({
     eventId: null,
     status: '',
     paymentAmount: '',
-    notes: ''
+    notes: '',
   });
   const dispatch = useDispatch();
 
@@ -91,42 +91,43 @@ const MyBooking = () => {
 
   const pickupState = useSelector((state) => state.pickup.fetchedPickups);
 
-  const pickupEvents = pickupState?.map((pickup) => {
-    const slotTimeRanges = {
-      morning: "8:00 AM - 12:00 PM",
-      afternoon: "1:00 PM - 5:00 PM",
-      evening: "6:00 PM - 9:00 PM",
-    };
+  const pickupEvents =
+    pickupState?.map((pickup) => {
+      const slotTimeRanges = {
+        morning: '8:00 AM - 12:00 PM',
+        afternoon: '1:00 PM - 5:00 PM',
+        evening: '6:00 PM - 9:00 PM',
+      };
 
-    return {
-      title: `${pickup.pickupSlot ? pickup.pickupSlot.charAt(0).toUpperCase() + pickup.pickupSlot.slice(1) : ''} Pickup`,
-      start: new Date(pickup.pickupDate),
-      end: new Date(pickup.pickupDate),
-      type: "pickup",
-      status: pickup.status || "pending",
-      slot: pickup.pickupSlot,
-      timeRange: slotTimeRanges[pickup.pickupSlot] || "",
-      weight: pickup.expectedWeight,
-      id: pickup.id,
-      paymentAmount: pickup.paymentAmount || 0,
-    };
-  }) || [];
+      return {
+        title: `${pickup.pickupSlot ? pickup.pickupSlot.charAt(0).toUpperCase() + pickup.pickupSlot.slice(1) : ''} Pickup`,
+        start: new Date(pickup.pickupDate),
+        end: new Date(pickup.pickupDate),
+        type: 'pickup',
+        status: pickup.status || 'pending',
+        slot: pickup.pickupSlot,
+        timeRange: slotTimeRanges[pickup.pickupSlot] || '',
+        weight: pickup.expectedWeight,
+        id: pickup.id,
+        paymentAmount: pickup.paymentAmount || 0,
+      };
+    }) || [];
 
   const CustomToolbar = (toolbar) => {
     const goToBack = () => {
       const today = new Date();
       const currentDate = new Date(toolbar.date);
       if (currentDate > today) {
-        toolbar.onNavigate("PREV");
+        toolbar.onNavigate('PREV');
       }
     };
 
     const goToNext = () => {
-      toolbar.onNavigate("NEXT");
+      toolbar.onNavigate('NEXT');
     };
 
     const goToToday = () => {
-      toolbar.onNavigate("TODAY");
+      toolbar.onNavigate('TODAY');
     };
 
     return (
@@ -156,14 +157,12 @@ const MyBooking = () => {
         </div>
         <h2 className="text-xl font-semibold text-gray-800">{toolbar.label}</h2>
         <div className="flex gap-2">
-          {["month", "week", "day"].map((viewName) => (
+          {['month', 'week', 'day'].map((viewName) => (
             <button
               key={viewName}
               onClick={() => setView(viewName)}
               className={`px-4 py-2 rounded-full text-sm capitalize transition-colors ${
-                view === viewName
-                  ? "bg-[#4DA674] text-white"
-                  : "text-gray-600 hover:bg-gray-100"
+                view === viewName ? 'bg-[#4DA674] text-white' : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
               {viewName}
@@ -177,17 +176,15 @@ const MyBooking = () => {
   const CustomEvent = ({ event }) => {
     const status = event.status || 'pending';
     const colors = statusColors[status] || statusColors.pending;
-    
+
     return (
       <div className="group relative">
         <div className={`${colors.bg} ${colors.border} border-l-4 p-1 rounded-md`}>
           <div className="flex items-center gap-1">
-            <span className="text-xs mr-1">
-              {slotIcons[event.slot] || "📦"}
-            </span>
+            <span className="text-xs mr-1">{slotIcons[event.slot] || '📦'}</span>
             <div className="flex flex-col flex-1 min-w-0">
               <span className={`text-xs font-medium ${colors.text} truncate`}>
-                {event.slot ? event.slot.charAt(0).toUpperCase() + event.slot.slice(1) : "Pickup"}
+                {event.slot ? event.slot.charAt(0).toUpperCase() + event.slot.slice(1) : 'Pickup'}
               </span>
               <span className={`text-xs ${colors.text} opacity-90 truncate`}>
                 {statusText[status] || status}
@@ -202,11 +199,11 @@ const MyBooking = () => {
               <div>
                 <p className="font-semibold text-gray-800 text-base">{event.title}</p>
                 <p className="text-gray-500 text-xs">
-                  {new Date(event.start).toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                  {new Date(event.start).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
                   })}
                 </p>
               </div>
@@ -216,7 +213,7 @@ const MyBooking = () => {
                 {statusText[status] || status}
               </span>
             </div>
-            
+
             <div className="space-y-2">
               <div className="flex items-center gap-3 text-gray-600">
                 <Clock className="w-4 h-4 text-blue-500" />
@@ -224,18 +221,20 @@ const MyBooking = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-600">
                 <Package className="w-4 h-4 text-orange-500" />
-                <span>Expected Weight: <strong>{event.weight} kg</strong></span>
+                <span>
+                  Expected Weight: <strong>{event.weight} kg</strong>
+                </span>
               </div>
               <div className="flex items-center gap-3 text-gray-600">
                 <DollarSign className="w-4 h-4 text-green-500" />
-                <span>Payment: <strong>${event.paymentAmount || 0}</strong></span>
+                <span>
+                  Payment: <strong>${event.paymentAmount || 0}</strong>
+                </span>
               </div>
             </div>
-            
+
             <div className="mt-3 pt-2 border-t border-gray-100">
-              <p className="text-xs text-gray-500">
-                Click the date to edit pickup details
-              </p>
+              <p className="text-xs text-gray-500">Click the date to edit pickup details</p>
             </div>
           </div>
         </div>
@@ -251,7 +250,7 @@ const MyBooking = () => {
         eventId: events[0].id,
         status: events[0].status,
         paymentAmount: events[0].paymentAmount || '',
-        notes: ''
+        notes: '',
       });
     }
   };
@@ -265,14 +264,14 @@ const MyBooking = () => {
       eventId: null,
       status: '',
       paymentAmount: '',
-      notes: ''
+      notes: '',
     });
   };
 
   const handleInputChange = (field, value) => {
-    setEditFormData(prev => ({
+    setEditFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -288,13 +287,14 @@ const MyBooking = () => {
 
     const hasEvents = dateEvents.length > 0;
     const today = new Date();
-    const isToday = value.getDate() === today.getDate() && 
-                   value.getMonth() === today.getMonth() && 
-                   value.getFullYear() === today.getFullYear();
+    const isToday =
+      value.getDate() === today.getDate() &&
+      value.getMonth() === today.getMonth() &&
+      value.getFullYear() === today.getFullYear();
     const isPastDate = value < today.setHours(0, 0, 0, 0);
 
     return (
-      <div 
+      <div
         className={`relative w-full h-full ${isToday ? 'bg-blue-50' : ''} ${isPastDate ? 'opacity-70' : ''}`}
         onClick={() => hasEvents && handleDateCellClick(value, dateEvents)}
       >
@@ -305,7 +305,7 @@ const MyBooking = () => {
               const status = event.status || 'pending';
               const colors = statusColors[status] || statusColors.pending;
               return (
-                <div 
+                <div
                   key={index}
                   className={`w-2 h-2 rounded-full ${colors.full}`}
                   title={`${statusText[status] || status} pickup`}
@@ -340,7 +340,7 @@ const MyBooking = () => {
                     <span className="text-sm">🌆 Evening</span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <span className="text-sm font-medium text-gray-700">Status:</span>
                   <div className="flex items-center gap-2">
@@ -390,11 +390,11 @@ const MyBooking = () => {
               const isPastDate = normalizedDate < normalizedToday;
 
               return {
-                className: isPastDate ? "bg-gray-50 text-gray-400" : "",
+                className: isPastDate ? 'bg-gray-50 text-gray-400' : '',
                 style: {
-                  margin: "1px",
-                  borderRadius: "8px",
-                  pointerEvents: isPastDate ? "none" : "auto",
+                  margin: '1px',
+                  borderRadius: '8px',
+                  pointerEvents: isPastDate ? 'none' : 'auto',
                 },
               };
             }}
@@ -406,13 +406,13 @@ const MyBooking = () => {
               const isPastEvent = eventDate < now.setHours(0, 0, 0, 0);
 
               return {
-                className: `${isPastEvent ? "opacity-70" : ""} ${colors.bg} ${colors.text} ${colors.border}`,
+                className: `${isPastEvent ? 'opacity-70' : ''} ${colors.bg} ${colors.text} ${colors.border}`,
                 style: {
                   borderLeftWidth: '4px',
                   borderRadius: '4px',
                   padding: '2px 4px',
                   margin: '1px 0',
-                  fontSize: '12px'
+                  fontSize: '12px',
                 },
               };
             }}
@@ -458,9 +458,7 @@ const MyBooking = () => {
                   )}
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Status
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
                     <select
                       value={editFormData.status}
                       onChange={(e) => handleInputChange('status', e.target.value)}

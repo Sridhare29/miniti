@@ -1,7 +1,7 @@
-import React from "react";
-import tealeafImage from "../../image/tealeafimg.png";
-import leafImage from "../../image/monstera_17259470 (1).png";
-import ecoabs from "../../image/WelcomeBanner.png";
+import React from 'react';
+import tealeafImage from '../../image/tealeafimg.png';
+import leafImage from '../../image/monstera_17259470 (1).png';
+import ecoabs from '../../image/WelcomeBanner.png';
 import { useNavigate } from 'react-router-dom';
 
 const MainBanner = () => {
@@ -10,7 +10,9 @@ const MainBanner = () => {
   return (
     <div className="relative min-h-screen w-full bg-[#ffffff] overflow-hidden px-6 sm:px-10 lg:px-16 top-8">
       {/* Animation Styles */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes float-slow {
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
           50% { transform: translate(0, -15px) rotate(5deg); }
@@ -49,7 +51,9 @@ const MainBanner = () => {
         .delay-3 {
           animation-delay: 3s;
         }
-      `}} />
+      `,
+        }}
+      />
 
       {/* Background Text */}
       <div className="absolute w-full flex items-center justify-center top-28 md-lg:pt-28">
@@ -67,14 +71,24 @@ const MainBanner = () => {
             <br />
             Cash with Miniti
           </h2>
-          <p className="text-lg lg:text-xl">
-            Recycle Smart | Earn Instant | Save Planet
-          </p>
+          <p className="text-lg lg:text-xl">Recycle Smart | Earn Instant | Save Planet</p>
           <button
             onClick={() => navigate('/request')}
-            className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-4 rounded-full font-bold hover:bg-orange-100 transition-colors flex items-center gap-2 group">
+            className="bg-white border-gray-200 border-2 text-[#baa53c] px-8 py-4 lg:py-4 rounded-full font-bold hover:bg-orange-100 transition-colors flex items-center gap-2 group"
+          >
             <span>Book Now</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transform transition-transform duration-300 group-hover:translate-x-1"
+            >
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
             </svg>
@@ -91,7 +105,7 @@ const MainBanner = () => {
               className="w-full h-full object-contain transform rotate-45"
             />
           </div>
-          
+
           {/* Middle Right Leaf - Large */}
           <div className="absolute top-[30%] right-[20%] w-32 h-32 lg:w-40 lg:h-40 opacity-90 float-slow delay-1">
             <img
@@ -100,7 +114,7 @@ const MainBanner = () => {
               className="w-full h-full object-contain transform -rotate-12"
             />
           </div>
-          
+
           {/* Top Right Small Leaf */}
           <div className="absolute top-[15%] right-[30%] w-10 h-10 lg:w-12 lg:h-12 opacity-70 float-fast">
             <img
@@ -109,7 +123,7 @@ const MainBanner = () => {
               className="w-full h-full object-contain transform rotate-75"
             />
           </div>
-          
+
           {/* Bottom Left Leaf */}
           <div className="absolute bottom-[25%] left-[25%] w-20 h-20 lg:w-24 lg:h-24 opacity-80 float-slow delay-3">
             <img
@@ -118,7 +132,7 @@ const MainBanner = () => {
               className="w-full h-full object-contain transform rotate-15"
             />
           </div>
-          
+
           {/* Bottom Right Leaf */}
           <div className="absolute bottom-[20%] right-[10%] w-16 h-16 lg:w-20 lg:h-20 opacity-90 float-medium">
             <img
@@ -127,7 +141,7 @@ const MainBanner = () => {
               className="w-full h-full object-contain transform -rotate-35"
             />
           </div>
-          
+
           {/* Center Right Leaf - Small */}
           <div className="absolute top-[50%] right-[35%] w-12 h-12 lg:w-16 lg:h-16 opacity-75 float-fast delay-2">
             <img

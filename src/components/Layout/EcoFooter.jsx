@@ -6,16 +6,16 @@ import {
   FaInstagram,
   FaEnvelope,
   FaPhoneAlt,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
 } from 'react-icons/fa';
-import logo from "../../image/logo.png";
+import logo from '../../image/logo.png';
 
 const EcoFooter = () => {
   const socialLinks = [
     { icon: FaFacebookF, link: '#', color: 'text-blue-600' },
     { icon: FaTwitter, link: '#', color: 'text-sky-400' },
     { icon: FaLinkedin, link: '#', color: 'text-blue-700' },
-    { icon: FaInstagram, link: '#', color: 'text-pink-500' }
+    { icon: FaInstagram, link: '#', color: 'text-pink-500' },
   ];
 
   return (
@@ -32,12 +32,12 @@ const EcoFooter = () => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-10">
-        
         {/* Left Section */}
         <div className="w-full lg:w-1/2 space-y-4 text-[#335230]">
           <img src={logo} alt="Miniti Logo" className="h-12 m-0" />
           <p className="text-gray-700 text-sm">
-            Transforming waste into wealth, one recyclable at a time. Join our mission to create a sustainable future.
+            Transforming waste into wealth, one recyclable at a time. Join our mission to create a
+            sustainable future.
           </p>
           <div className="space-y-2 text-sm">
             <div className="flex items-center gap-2">
@@ -58,7 +58,9 @@ const EcoFooter = () => {
         {/* Right Section */}
         <div className="w-full lg:w-1/2 space-y-4 text-[#335230]">
           <h4 className="font-bold text-lg">Stay Green, Stay Informed</h4>
-          <p className="text-sm">Subscribe to our newsletter for eco-tips and recycling insights!</p>
+          <p className="text-sm">
+            Subscribe to our newsletter for eco-tips and recycling insights!
+          </p>
           <div className="flex w-full">
             <input
               type="email"

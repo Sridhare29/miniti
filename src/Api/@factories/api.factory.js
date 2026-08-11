@@ -6,9 +6,9 @@ const apiFactory = (apiMethods) => {
           throw new Error('An error occurred while fetching data.');
         }
         return null;
-      }
+      },
     },
-    ...apiMethods
+    ...apiMethods,
   };
 };
 

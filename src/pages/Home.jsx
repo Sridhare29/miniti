@@ -1,11 +1,11 @@
-import React from "react";
-import Header from "../components/Header";
-import MainBanner from "../components/Layout/MainBanner";
-import { QuoteBanner } from "../components/Layout/QuoteBanner";
-import AboutBanner from "../components/Layout/AboutBanner";
-import BookingBanner from "../components/Layout/BookingBanner";
-import EcoFooter from "../components/Layout/EcoFooter";
-import HowItWorks from "../components/Layout/HowItWorks";
+import React from 'react';
+import Header from '../components/Header';
+import MainBanner from '../components/Layout/MainBanner';
+import { QuoteBanner } from '../components/Layout/QuoteBanner';
+import AboutBanner from '../components/Layout/AboutBanner';
+import BookingBanner from '../components/Layout/BookingBanner';
+import EcoFooter from '../components/Layout/EcoFooter';
+import HowItWorks from '../components/Layout/HowItWorks';
 
 function Home() {
   return (

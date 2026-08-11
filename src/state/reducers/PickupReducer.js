@@ -1,8 +1,8 @@
-import PickupActionTypes from "../actionTypes/Pickup.actionTypes";
+import PickupActionTypes from '../actionTypes/Pickup.actionTypes';
 
 const initialState = {
   fetchedPickups: [], // stores response from GET_PICKUP
-  postedPickups: [],  // stores pickups added via POST_PICKUP
+  postedPickups: [], // stores pickups added via POST_PICKUP
   loading: false,
   error: null,
 };

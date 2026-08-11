@@ -1,4 +1,3 @@
-
 const Card = ({ title, description, image }) => {
   return (
     <div className="relative group overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#cae4c7] w-full">

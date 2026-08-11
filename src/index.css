@@ -2,22 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 @keyframes text-fade {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .animate-text-fade {
-    animation: text-fade 1.5s ease-out;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  /* in your global CSS or a CSS file */
+}
+
+.animate-text-fade {
+  animation: text-fade 1.5s ease-out;
+}
+/* in your global CSS or a CSS file */
 .text-shadow-xl {
-  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1), 1px 1px 3px rgba(0, 0, 0, 0.08);
+  text-shadow:
+    4px 4px 6px rgba(0, 0, 0, 0.1),
+    1px 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .text-stroke {

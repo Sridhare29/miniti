@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Package, Calendar, Clock, MapPin, Truck } from 'lucide-react';
-import ecoabs from "../image/WelcomeBanner.png";
+import { Package, Calendar, Clock, Truck } from 'lucide-react';
+import ecoabs from '../image/WelcomeBanner.png';
 import { useDispatch } from 'react-redux';
-import { createPickup, getAllPickup } from '../state/actions/Pickup.action';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { getAddress } from '../state/actions/Address.action';
+import { createPickup } from '../state/actions/Pickup.action';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import successAnim from '../image/Lottie/Sucess.json';
 import errorAnim from '../image/Lottie/Failed.json';
-import LottieToast from '../Utils/LottieToast'; 
 import PopupModal from '../Utils/PopupModal';
-
 
 const BookRequest = () => {
   const dispatch = useDispatch();
-  
+
   const initialFormState = {
     pickupSlot: '',
     expectedWeight: '',
@@ -30,7 +26,7 @@ const BookRequest = () => {
     success: true,
     message: '',
   });
-  
+
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const resetForm = () => {
@@ -39,20 +35,19 @@ const BookRequest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
-      const response = await dispatch(createPickup(formData));
+      await dispatch(createPickup(formData));
 
-        setPopup({
-          show: true,
-          success: true,
-          message: 'Pickup Scheduled Successfully!',
-        });
-        resetForm();
-        setTimeout(() => {
-          window.location.href = '/booking';
-        }, 2000);
-
+      setPopup({
+        show: true,
+        success: true,
+        message: 'Pickup Scheduled Successfully!',
+      });
+      resetForm();
+      setTimeout(() => {
+        window.location.href = '/booking';
+      }, 2000);
     } catch (err) {
       setPopup({
         show: true,
@@ -62,7 +57,7 @@ const BookRequest = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };  
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,14 +66,10 @@ const BookRequest = () => {
 
   return (
     <div className="relative h-screen overflow-hidden flex flex-col">
-      <ToastContainer/>
+      <ToastContainer />
       {/* Background Image */}
       <div className="absolute bottom-0 w-full z-0">
-        <img
-          src={ecoabs}
-          alt="leaf"
-          className="w-full h-auto object-cover opacity-20"
-        />
+        <img src={ecoabs} alt="leaf" className="w-full h-auto object-cover opacity-20" />
       </div>
 
       {/* Main Content */}
@@ -106,10 +97,7 @@ const BookRequest = () => {
           </div>
 
           {/* Form Section */}
-          <form
-            onSubmit={handleSubmit}
-            className="p-4 space-y-4 bg-white overflow-auto"
-          >
+          <form onSubmit={handleSubmit} className="p-4 space-y-4 bg-white overflow-auto">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block mb-1 text-sm font-semibold text-slate-700">
@@ -149,7 +137,6 @@ const BookRequest = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-
               <div>
                 <label className="block mb-1 text-sm font-semibold text-slate-700">
                   <Calendar className="inline-block w-4 h-4 text-[#335230]" /> Pickup Date
@@ -160,7 +147,7 @@ const BookRequest = () => {
                   value={formData.pickupDate}
                   onChange={handleChange}
                   required
-                  min={new Date().toISOString().split('T')[0]} 
+                  min={new Date().toISOString().split('T')[0]}
                   className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-[#335230]"
                 />
               </div>

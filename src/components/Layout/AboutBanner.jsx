@@ -1,5 +1,5 @@
-import React from "react";
-import Card from "../Card";
+import React from 'react';
+import Card from '../Card';
 import Img1 from '../../image/Aboutus/Rate1.png';
 import Img2 from '../../image/Aboutus/Trust1.png';
 import Img3 from '../../image/Aboutus/Good1.png';
@@ -9,28 +9,31 @@ const AboutBanner = () => {
   const cardValues = [
     {
       id: 1,
-      title: "Best Rates",
-      description: "Get top market value for recyclables through our extensive recycler partnerships.",
+      title: 'Best Rates',
+      description:
+        'Get top market value for recyclables through our extensive recycler partnerships.',
       image: Img1,
     },
     {
       id: 2,
-      title: "Convenience",
-      description: "Schedule home collections at your preferred time with our flexible pickup service.",
+      title: 'Convenience',
+      description:
+        'Schedule home collections at your preferred time with our flexible pickup service.',
       image: Img2,
     },
     {
       id: 3,
-      title: "Trust",
-      description: "Our certified collection team uses digital scales ensuring accurate measurements.",
+      title: 'Trust',
+      description:
+        'Our certified collection team uses digital scales ensuring accurate measurements.',
       image: Img3,
     },
     {
       id: 4,
-      title: "Eco-friendly",
-      description: "Supporting sustainable disposal practices that protect our environment.",
+      title: 'Eco-friendly',
+      description: 'Supporting sustainable disposal practices that protect our environment.',
       image: Img4,
-    }
+    },
   ];
 
   return (

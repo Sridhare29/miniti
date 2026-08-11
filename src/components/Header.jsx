@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { 
-  CircleUser, 
-  Mail, 
-  Phone, 
-  Leaf, 
-  ChevronDown, 
-  LogOut, 
-  Settings, 
-  User, 
-  Calendar, 
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  CircleUser,
+  Mail,
+  Phone,
+  Leaf,
+  ChevronDown,
+  LogOut,
+  Settings,
+  User,
+  Calendar,
   Recycle,
   Menu,
-  X
-} from "lucide-react";
-import logoMiniti from "../image/logo.png"; 
+  X,
+} from 'lucide-react';
+import logoMiniti from '../image/logo.png';
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -23,7 +23,7 @@ const Header = () => {
 
   // Mock eco points data
   const ecoPoints = 1250;
-  const ecoLevel = "Earth Guardian";
+  const ecoLevel = 'Earth Guardian';
 
   // Toggle profile dropdown
   const toggleProfileDropdown = () => {
@@ -55,7 +55,9 @@ const Header = () => {
             {/* Eco tips rotating text */}
             <div className="hidden md:flex items-center text-xs font-medium text-green-800">
               <Leaf className="w-4 h-4 mr-2 text-green-600" />
-              <span>Eco Tip: Recycling one aluminum can saves enough energy to run a TV for 3 hours</span>
+              <span>
+                Eco Tip: Recycling one aluminum can saves enough energy to run a TV for 3 hours
+              </span>
             </div>
           </div>
         </div>
@@ -67,7 +69,7 @@ const Header = () => {
           <div className="h-[70px] flex justify-between items-center px-4 lg:px-0">
             {/* Logo Section */}
             <div className="w-1/4 flex items-center">
-              <button 
+              <button
                 className="mr-2 p-1 block lg:hidden text-gray-700"
                 onClick={toggleMobileSidebar}
               >
@@ -81,24 +83,42 @@ const Header = () => {
             {/* Navigation - Hide on mobile */}
             <div className="hidden lg:flex w-3/4 items-center justify-between">
               <ul className="flex items-center gap-6 text-sm font-medium p-2 border-2 border-[#ededed] bg-[#ffffff] rounded-2xl">
-                <li><a href="/#main-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Marketplace</a></li>
-                <li><a href="/#about-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Eco Insights</a></li>
                 <li>
-                  <Link to="/scraprate" className={`p-1 transition-colors ${pathname === "/scraprate" ? "text-[#4DA674]" : "text-slate-600 hover:text-[#4DA674]"}`}>
+                  <a href="/#main-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">
+                    Marketplace
+                  </a>
+                </li>
+                <li>
+                  <a href="/#about-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">
+                    Eco Insights
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/scraprate"
+                    className={`p-1 transition-colors ${pathname === '/scraprate' ? 'text-[#4DA674]' : 'text-slate-600 hover:text-[#4DA674]'}`}
+                  >
                     Recycle Hub
                   </Link>
                 </li>
                 <li>
-                  <Link to="/booking" className={`p-1 ${pathname === "/booking" ? "text-[#4DA674] transition-colors" : "text-slate-600 hover:text-[#4DA674]"}`}>
+                  <Link
+                    to="/booking"
+                    className={`p-1 ${pathname === '/booking' ? 'text-[#4DA674] transition-colors' : 'text-slate-600 hover:text-[#4DA674]'}`}
+                  >
                     Bookings
                   </Link>
                 </li>
-                <li><a href="/#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">Our Services</a></li>
+                <li>
+                  <a href="/#services-banner" className="p-1 text-slate-600 hover:text-[#4DA674]">
+                    Our Services
+                  </a>
+                </li>
               </ul>
 
               {/* User Profile with Eco Points - For large screens */}
               <div className="relative px-2">
-                <div 
+                <div
                   className="flex items-center gap-2 border border-green-100 px-3 py-2 rounded-full bg-gradient-to-r from-[#EAF8E7] to-[#E0F3DF] cursor-pointer hover:shadow-md transition-all duration-300"
                   onClick={toggleProfileDropdown}
                 >
@@ -112,7 +132,9 @@ const Header = () => {
                     </div>
                     <div className="flex items-center gap-1">
                       <Leaf className="w-3 h-3 text-green-600" />
-                      <span className="text-xs font-semibold text-[#4DA674]">{ecoPoints} points</span>
+                      <span className="text-xs font-semibold text-[#4DA674]">
+                        {ecoPoints} points
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +154,9 @@ const Header = () => {
                             <span className="text-xs font-medium text-green-800">{ecoLevel}</span>
                             <div className="ml-1 px-1.5 py-0.5 bg-green-100 rounded-full flex items-center">
                               <Leaf className="w-3 h-3 mr-1 text-green-600" />
-                              <span className="text-xs font-semibold text-[#4DA674]">{ecoPoints}</span>
+                              <span className="text-xs font-semibold text-[#4DA674]">
+                                {ecoPoints}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -144,30 +168,45 @@ const Header = () => {
                           <span className="text-green-700">750/1000</span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-green-400 to-[#4DA674] h-2 rounded-full" style={{ width: '75%' }}></div>
+                          <div
+                            className="bg-gradient-to-r from-green-400 to-[#4DA674] h-2 rounded-full"
+                            style={{ width: '75%' }}
+                          ></div>
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Menu Items */}
                     <div>
-                      <Link to="/profile" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+                      <Link
+                        to="/profile"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      >
                         <User className="w-4 h-4 text-gray-600" />
                         <span className="text-gray-700">My Profile</span>
                       </Link>
-                      <Link to="/my-bookings" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+                      <Link
+                        to="/my-bookings"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      >
                         <Calendar className="w-4 h-4 text-gray-600" />
                         <span className="text-gray-700">My Bookings</span>
                       </Link>
-                      <Link to="/eco-impact" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+                      <Link
+                        to="/eco-impact"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      >
                         <Recycle className="w-4 h-4 text-gray-600" />
                         <span className="text-gray-700">My Eco Impact</span>
                       </Link>
-                      <Link to="/settings" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+                      <Link
+                        to="/settings"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      >
                         <Settings className="w-4 h-4 text-gray-600" />
                         <span className="text-gray-700">Settings</span>
                       </Link>
-                      <button 
+                      <button
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors border-t border-gray-100"
                         onClick={() => console.log('Logout')}
                       >
@@ -182,7 +221,7 @@ const Header = () => {
 
             {/* Mobile Profile Button */}
             <div className="block lg:hidden">
-              <div 
+              <div
                 className="flex items-center gap-2 border border-green-100 px-2 py-1 rounded-full bg-gradient-to-r from-[#EAF8E7] to-[#E0F3DF] cursor-pointer"
                 onClick={toggleProfileDropdown}
               >
@@ -202,25 +241,25 @@ const Header = () => {
       {/* Mobile Sidebar */}
       <div className={`fixed inset-0 z-50 lg:hidden ${showSidebar ? 'block' : 'hidden'}`}>
         {/* Backdrop */}
-        <div 
+        <div
           className="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity"
           onClick={() => setShowSidebar(false)}
         ></div>
-        
+
         {/* Sidebar Panel */}
         <div className="fixed inset-y-0 left-0 w-[80%] max-w-[300px] bg-white shadow-xl overflow-y-auto">
           <div className="flex items-center justify-between p-4 border-b">
             <Link to="/" onClick={() => setShowSidebar(false)}>
               <img src={logoMiniti} alt="Logo" className="h-8" />
             </Link>
-            <button 
-              className="p-1 rounded-full hover:bg-gray-100" 
+            <button
+              className="p-1 rounded-full hover:bg-gray-100"
               onClick={() => setShowSidebar(false)}
             >
               <X className="w-5 h-5 text-gray-700" />
             </button>
           </div>
-          
+
           {/* User Info for Mobile */}
           <div className="p-4 border-b border-gray-100 bg-gradient-to-r from-green-50 to-[#E0F3DF]">
             <div className="flex items-center gap-3">
@@ -239,13 +278,13 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Navigation Links */}
           <nav className="p-4">
             <ul className="space-y-1">
               <li>
-                <a 
-                  href="/#main-banner" 
+                <a
+                  href="/#main-banner"
                   className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
                   onClick={() => setShowSidebar(false)}
                 >
@@ -253,8 +292,8 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="/#about-banner" 
+                <a
+                  href="/#about-banner"
                   className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
                   onClick={() => setShowSidebar(false)}
                 >
@@ -262,26 +301,26 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <Link 
-                  to="/scraprate" 
-                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === "/scraprate" ? "text-[#4DA674]" : "text-gray-700"}`}
+                <Link
+                  to="/scraprate"
+                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === '/scraprate' ? 'text-[#4DA674]' : 'text-gray-700'}`}
                   onClick={() => setShowSidebar(false)}
                 >
                   Recycle Hub
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/booking" 
-                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === "/booking" ? "text-[#4DA674]" : "text-gray-700"}`}
+                <Link
+                  to="/booking"
+                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-gray-100 ${pathname === '/booking' ? 'text-[#4DA674]' : 'text-gray-700'}`}
                   onClick={() => setShowSidebar(false)}
                 >
                   Bookings
                 </Link>
               </li>
               <li>
-                <a 
-                  href="/#services-banner" 
+                <a
+                  href="/#services-banner"
                   className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
                   onClick={() => setShowSidebar(false)}
                 >
@@ -290,35 +329,35 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          
+
           {/* Mobile Profile Links */}
           <div className="mt-2 pt-2 border-t border-gray-100">
-            <Link 
-              to="/profile" 
+            <Link
+              to="/profile"
               className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
               onClick={() => setShowSidebar(false)}
             >
               <User className="w-4 h-4 text-gray-600" />
               <span>My Profile</span>
             </Link>
-            <Link 
-              to="/my-bookings" 
+            <Link
+              to="/my-bookings"
               className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
               onClick={() => setShowSidebar(false)}
             >
               <Calendar className="w-4 h-4 text-gray-600" />
               <span>My Bookings</span>
             </Link>
-            <Link 
-              to="/eco-impact" 
+            <Link
+              to="/eco-impact"
               className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
               onClick={() => setShowSidebar(false)}
             >
               <Recycle className="w-4 h-4 text-gray-600" />
               <span>My Eco Impact</span>
             </Link>
-            <Link 
-              to="/settings" 
+            <Link
+              to="/settings"
               className="flex items-center gap-3 px-7 py-3 text-sm text-gray-700 hover:bg-gray-50"
               onClick={() => setShowSidebar(false)}
             >
@@ -326,10 +365,10 @@ const Header = () => {
               <span>Settings</span>
             </Link>
           </div>
-          
+
           {/* Sign Out */}
           <div className="px-4 py-4 mt-2 border-t border-gray-100">
-            <button 
+            <button
               className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
               onClick={() => {
                 console.log('Logout');

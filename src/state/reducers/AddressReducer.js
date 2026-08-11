@@ -1,7 +1,7 @@
-import AddressActionTypes from "../actionTypes/Address.actionTypes";
+import AddressActionTypes from '../actionTypes/Address.actionTypes';
 
 const initialState = {
-  addresses: []
+  addresses: [],
 };
 
 export const AddressReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ export const AddressReducer = (state = initialState, action) => {
     case AddressActionTypes.GET_ADDRESS:
       return {
         ...state,
-        addresses: action.payload
+        addresses: action.payload,
       };
     default:
       return state;

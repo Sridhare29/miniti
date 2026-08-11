@@ -1,5 +1,5 @@
-import { services } from "../../Api";
-import PickupActionTypes from "../actionTypes/Pickup.actionTypes";
+import { services } from '../../Api';
+import PickupActionTypes from '../actionTypes/Pickup.actionTypes';
 
 export const createPickup = (pickupData) => {
   return async (dispatch) => {
@@ -10,7 +10,7 @@ export const createPickup = (pickupData) => {
         payload: pickups,
       });
     } catch (error) {
-      console.error("Failed to post pickup:", error);
+      console.error('Failed to post pickup:', error);
       return [];
     }
   };
@@ -25,7 +25,7 @@ export const getAllPickup = () => {
         payload: pickups,
       });
     } catch (error) {
-      console.error("Failed to get pickup:", error);
+      console.error('Failed to get pickup:', error);
       return [];
     }
   };

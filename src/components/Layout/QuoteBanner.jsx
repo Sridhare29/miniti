@@ -1,6 +1,6 @@
 import React from 'react';
-import tealeafImage from "../../image/tealeafimg.png";
-import leafImage from "../../image/monstera_17259470 (1).png";
+import tealeafImage from '../../image/tealeafimg.png';
+import leafImage from '../../image/monstera_17259470 (1).png';
 
 export const QuoteBanner = () => {
   return (
@@ -16,14 +16,10 @@ export const QuoteBanner = () => {
       <div className="relative container mx-auto flex flex-col items-center justify-center text-center z-10">
         <div className="text-[#335230] space-y-4">
           {/* First Line */}
-          <h2 className="text-4xl lg:text-6xl font-bold animate-fade-in">
-            Recycle,
-          </h2>
+          <h2 className="text-4xl lg:text-6xl font-bold animate-fade-in">Recycle,</h2>
 
           {/* Second Line */}
-          <p className="text-2xl lg:text-3xl italic">
-            the possibilities are endless.
-          </p>
+          <p className="text-2xl lg:text-3xl italic">the possibilities are endless.</p>
 
           {/* Decorative Line */}
           <div className="w-24 h-1 bg-[#baa53c] mx-auto mt-6"></div>
